@@ -1,5 +1,8 @@
 package com.sakhbord.bord.models.announcement;
 
+import com.sakhbord.bord.models.categories.Category;
+import com.sakhbord.bord.models.city.City;
+import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
@@ -7,8 +10,6 @@ import org.hibernate.annotations.NaturalId;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "model_announcement")
@@ -20,37 +21,37 @@ public class Announcement implements Serializable {
 
     // Это ID объявления
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_b_announcement")
-    @SequenceGenerator(name = "seq_b_announcement", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_announcement")
+    @SequenceGenerator(name = "seq_a_announcement", allocationSize = 2)
     @Column(name = "id", nullable = false)
     private Long id;
 
 
     // Это текст объявление
-    @Column(name = "message", nullable = false, length = 355)
+    @Column(name = "message", nullable = false, length = 335)
     private String message;
 
 
     // Это номер телефона пользователя который разместил объявление
     @NaturalId
-    @Column(name = "phone", nullable = false, unique = true, length = 10)
+    @Column(name = "phone", nullable = true, unique = false, length = 10)
     private Long phone;
 
 
     // Это email пользователя, который разместил объявление
     @NaturalId
-    @Column(name = "email", nullable = false, unique = true, length = 58)
+    @Column(name = "email", nullable = true, unique = false, length = 58)
     private String email;
 
 
     // Это telegram пользователя, который разместил объявление
     @NaturalId
-    @Column(name = "telegram", nullable = false, unique = true, length = 58)
+    @Column(name = "telegram", nullable = true, unique = false, length = 58)
     private String telegram;
 
 
     // Это дата создания объявления
-    @Column(name = "date_created_product", nullable = false)
+    @Column(name = "date_created_announcement", nullable = false)
     private Instant dateCreatedAnnouncement;
 
 
@@ -64,15 +65,28 @@ public class Announcement implements Serializable {
     @Column(name = "ip_address_registration", nullable = false, length = 39)
     private String ipAddressRegistration;
 
+    // Это ссылка на город
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "city_id", nullable = false, unique = false)
+    private City city;
+
+    // Это ссылка на категорию
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "category_id", nullable = false, unique = false)
+    private Category category;
+
+    // Это ссылка на пользователя
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "user_id", nullable = false, unique = false)
+    private User user;
 
 
 
-    // Это таблица связей ManyToMany Product и User
-    @ManyToMany(cascade = {CascadeType.MERGE})
-    @JoinTable(name = "join_announcement_and_user",
-            joinColumns = @JoinColumn(name = "announcement_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"))
-    private Set<User> users = new LinkedHashSet<>();
+
+    // Это тип объявления - куплю, продам,
+    @ManyToOne(cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "type_category_id", nullable = true, unique = false)
+    private TypeCategory typeCategory;
 
 
     public Long getId() {
@@ -139,12 +153,36 @@ public class Announcement implements Serializable {
         this.ipAddressRegistration = ipAddressRegistration;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public City getCity() {
+        return city;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public TypeCategory getTypeCategory() {
+        return typeCategory;
+    }
+
+    public void setTypeCategory(TypeCategory typeCategory) {
+        this.typeCategory = typeCategory;
     }
 
 
@@ -161,7 +199,10 @@ public class Announcement implements Serializable {
         if (!getTelegram().equals(that.getTelegram())) return false;
         if (!getDateCreatedAnnouncement().equals(that.getDateCreatedAnnouncement())) return false;
         if (!getIpAddressRegistration().equals(that.getIpAddressRegistration())) return false;
-        return getUsers().equals(that.getUsers());
+        if (!getCity().equals(that.getCity())) return false;
+        if (!getCategory().equals(that.getCategory())) return false;
+        if (!getUser().equals(that.getUser())) return false;
+        return getTypeCategory().equals(that.getTypeCategory());
     }
 
     @Override
@@ -174,7 +215,10 @@ public class Announcement implements Serializable {
         result = 31 * result + getDateCreatedAnnouncement().hashCode();
         result = 31 * result + (isEnabled() ? 1 : 0);
         result = 31 * result + getIpAddressRegistration().hashCode();
-        result = 31 * result + getUsers().hashCode();
+        result = 31 * result + getCity().hashCode();
+        result = 31 * result + getCategory().hashCode();
+        result = 31 * result + getUser().hashCode();
+        result = 31 * result + getTypeCategory().hashCode();
         return result;
     }
 }

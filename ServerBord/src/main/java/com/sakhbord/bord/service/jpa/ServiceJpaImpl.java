@@ -3,11 +3,14 @@ package com.sakhbord.bord.service.jpa;
 import com.sakhbord.bord.enam.RoleEnum;
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import com.sakhbord.bord.models.admin.Admin;
+import com.sakhbord.bord.models.announcement.Announcement;
+import com.sakhbord.bord.models.categories.Category;
+import com.sakhbord.bord.models.city.City;
 import com.sakhbord.bord.models.role.RoleAdmin;
 import com.sakhbord.bord.models.role.RoleUser;
+import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
-import com.sakhbord.bord.repository.AdminRepository;
-import com.sakhbord.bord.repository.UserRepository;
+import com.sakhbord.bord.repository.*;
 import com.sakhbord.bord.repository.activated.NotActivatedUserRepository;
 import com.sakhbord.bord.repository.role.RoleAdminRepository;
 import com.sakhbord.bord.repository.role.RoleUserRepository;
@@ -25,19 +28,30 @@ public class ServiceJpaImpl implements ServiceJpa {
     private final AdminRepository adminRepository;
     private final UserRepository userRepository;
 
+    private final AnnouncementRepository announcementRepository;
+
 
     private final RoleAdminRepository roleAdminRepository;
     private final RoleUserRepository roleUserRepository;
 
 
+    private final CityRepository cityRepository;
+    private final CategoryRepository categoryRepository;
+    private final TypeCategoryRepository typeCategoryRepository;
+
+
 
     private final NotActivatedUserRepository notActivatedUserRepository;
 
-    public ServiceJpaImpl(AdminRepository adminRepository, UserRepository userRepository, RoleAdminRepository roleAdminRepository, RoleUserRepository roleUserRepository, NotActivatedUserRepository notActivatedUserRepository) {
+    public ServiceJpaImpl(AdminRepository adminRepository, UserRepository userRepository, AnnouncementRepository announcementRepository, RoleAdminRepository roleAdminRepository, RoleUserRepository roleUserRepository, CityRepository cityRepository, CategoryRepository categoryRepository, TypeCategoryRepository typeCategoryRepository, NotActivatedUserRepository notActivatedUserRepository) {
         this.adminRepository = adminRepository;
         this.userRepository = userRepository;
+        this.announcementRepository = announcementRepository;
         this.roleAdminRepository = roleAdminRepository;
         this.roleUserRepository = roleUserRepository;
+        this.cityRepository = cityRepository;
+        this.categoryRepository = categoryRepository;
+        this.typeCategoryRepository = typeCategoryRepository;
         this.notActivatedUserRepository = notActivatedUserRepository;
     }
 
@@ -156,6 +170,46 @@ public class ServiceJpaImpl implements ServiceJpa {
     public void updateAdminTokenByEmail(String token, String email) {
         adminRepository.updateAdminTokenByEmail(token, email);
     }
+
+
+
+
+    // >>>>>>>>>>>>>>>>>>>> AddMessage USER <<<<<<<<<<<<<<<<<<<<
+
+
+    @Override
+    @Transactional
+    public void saveAnnouncement(Announcement announcement) {
+        announcementRepository.save(announcement);
+    }
+
+
+    // >>>>>>>>>>>>>>>>>>>> CityRepository <<<<<<<<<<<<<<<<<<<<
+
+
+    @Override
+    public Optional<City> findCityByName(String name) {
+        return cityRepository.findCityByName(name);
+    }
+
+
+    // >>>>>>>>>>>>>>>>>>>> CategoryRepository <<<<<<<<<<<<<<<<<<<<
+
+
+    @Override
+    public Optional<Category> findCategoryByName(String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
+
+
+    // >>>>>>>>>>>>>>>>>>>> TypeCategoryRepository <<<<<<<<<<<<<<<<<<<<
+
+
+    @Override
+    public Optional<TypeCategory> findTypeCategoryByName(String name) {
+        return typeCategoryRepository.findTypeCategoryByName(name);
+    }
+
 
 
 }

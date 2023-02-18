@@ -85,6 +85,10 @@ public class SecurityConfig {
 
 
 
+            .requestMatchers(API_GUARD_ADD_MESSAGE).permitAll()
+
+
+
             .anyRequest().authenticated();
 
     return http.build();

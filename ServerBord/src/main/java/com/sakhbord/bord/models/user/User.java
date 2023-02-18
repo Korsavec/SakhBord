@@ -76,7 +76,7 @@ public class User implements Serializable {
 
 
     // Установите значение true, если адрес электронной почты подтверждён
-    @Column(name = "confirmation_mmail", nullable = false, length = 1)
+    @Column(name = "confirmation_email", nullable = false, length = 1)
     private boolean confirmationEmail;
 
 

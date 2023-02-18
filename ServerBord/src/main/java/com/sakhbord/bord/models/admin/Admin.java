@@ -17,8 +17,8 @@ public class Admin implements Serializable {
     private static final long serialVersionUID = 6669976518037084669L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_admin")
-    @SequenceGenerator(name = "seq_admin")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_admin")
+    @SequenceGenerator(name = "seq_a_admin")
     @Column(name = "id", nullable = false)
     private Long id;
 

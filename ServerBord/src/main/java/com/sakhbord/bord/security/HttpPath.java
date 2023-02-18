@@ -12,6 +12,9 @@ public class HttpPath {
     public static final String API_SINGLETON_GUARD_ADMIN = "/api/AccountGuard/admin";
 
 
+    public static final String API_SINGLETON_GUARD_ADD_MESSAGE = "/api/AccountGuard/addMessage";
+
+
 
 
     private HttpPath() {
@@ -54,6 +57,12 @@ public class HttpPath {
 
     protected static final String[] API_GUARD_PASSPORT = {
             "/resources/Guard/image/passport/**"
+    };
+
+    //---
+
+    protected static final String[] API_GUARD_ADD_MESSAGE = {
+            API_SINGLETON_GUARD_ADD_MESSAGE
     };
 
 

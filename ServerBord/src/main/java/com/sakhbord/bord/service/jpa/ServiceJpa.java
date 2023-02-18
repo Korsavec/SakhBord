@@ -3,8 +3,12 @@ package com.sakhbord.bord.service.jpa;
 import com.sakhbord.bord.enam.RoleEnum;
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import com.sakhbord.bord.models.admin.Admin;
+import com.sakhbord.bord.models.announcement.Announcement;
+import com.sakhbord.bord.models.categories.Category;
+import com.sakhbord.bord.models.city.City;
 import com.sakhbord.bord.models.role.RoleAdmin;
 import com.sakhbord.bord.models.role.RoleUser;
+import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -86,5 +90,30 @@ public interface ServiceJpa {
     void updateAdminTokenByEmail(String token, String email);
 
 
+
+    // >>>>>>>>>>>>>>>>>>>> AddMessage USER <<<<<<<<<<<<<<<<<<<<
+
+    @Transactional
+    void saveAnnouncement(Announcement announcement);
+
+
+
+
+    // >>>>>>>>>>>>>>>>>>>> CityRepository <<<<<<<<<<<<<<<<<<<<
+
+
+    Optional<City> findCityByName(String name);
+
+
+    // >>>>>>>>>>>>>>>>>>>> CategoryRepository <<<<<<<<<<<<<<<<<<<<
+
+
+    Optional<Category> findCategoryByName(String name);
+
+
+    // >>>>>>>>>>>>>>>>>>>> TypeCategoryRepository <<<<<<<<<<<<<<<<<<<<
+
+
+    Optional<TypeCategory> findTypeCategoryByName(String name);
 
 }
