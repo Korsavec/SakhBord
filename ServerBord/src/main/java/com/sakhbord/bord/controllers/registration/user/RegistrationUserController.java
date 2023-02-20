@@ -72,8 +72,8 @@ public class RegistrationUserController {
                 || registrationUserRequest.password().length() > 24
                 || limitLogin.isBlocked(request.getRemoteAddr())
                 || registrationAttemptService.isBlocked(request.getRemoteAddr())
-                || validationRegExp.emailValidationRegExp(registrationUserRequest.email())
-                || validationRegExp.passwordValidationRegExp(registrationUserRequest.password())) {
+                || !validationRegExp.emailValidationRegExp(registrationUserRequest.email())
+                || !validationRegExp.passwordValidationRegExp(registrationUserRequest.password())) {
 
             return new ResponseEntity<>(new MessageResponse(HttpStatus.OK.value(),
                     STATIC_OK),
@@ -129,7 +129,7 @@ public class RegistrationUserController {
 
         limitLogin.addCache(request.getRemoteAddr());
 
-        if (token.token().length() != 36 || validationRegExp.validationTokenRegExp(token.token()) || limitLogin.isBlocked(request.getRemoteAddr())) {
+        if (token.token().length() != 36 || !validationRegExp.validationTokenRegExp(token.token()) || limitLogin.isBlocked(request.getRemoteAddr())) {
             return new ResponseEntity<>(new MessageResponse(HttpStatus.BAD_REQUEST.value(),
                     STATIC_OK),
                     HttpStatus.OK);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Фев 13 2023 г., 07:15
+-- Время создания: Фев 20 2023 г., 10:50
 -- Версия сервера: 8.0.29
 -- Версия PHP: 8.1.11
 
@@ -32,6 +32,13 @@ CREATE TABLE `join_admin_and_role_admin` (
   `role_admin_id` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
 
+--
+-- Дамп данных таблицы `join_admin_and_role_admin`
+--
+
+INSERT INTO `join_admin_and_role_admin` (`admin_id`, `role_admin_id`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -42,6 +49,13 @@ CREATE TABLE `join_user_and_role_user` (
   `user_id` bigint NOT NULL,
   `role_user_id` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `join_user_and_role_user`
+--
+
+INSERT INTO `join_user_and_role_user` (`user_id`, `role_user_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -58,6 +72,13 @@ CREATE TABLE `model_admin` (
   `token` varchar(45) COLLATE utf8mb4_ru_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
 
+--
+-- Дамп данных таблицы `model_admin`
+--
+
+INSERT INTO `model_admin` (`id`, `account_non_locked`, `email`, `enabled`, `password`, `token`) VALUES
+(1, b'1', 'www@www.www', b'1', '$2a$12$oUcljGf89hDLSJhfhHl3PemCH3bTnpM6jBZXewv83i9F3gZkMB6EK', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -66,28 +87,46 @@ CREATE TABLE `model_admin` (
 
 CREATE TABLE `model_announcement` (
   `id` bigint NOT NULL,
-  `date_created_product` datetime(6) NOT NULL,
-  `email` varchar(58) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL,
+  `date_created_announcement` datetime(6) NOT NULL,
+  `email` varchar(58) COLLATE utf8mb4_ru_0900_ai_ci DEFAULT NULL,
   `enabled` bit(1) NOT NULL,
   `ip_address_registration` varchar(39) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL,
   `message` varchar(335) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL,
-  `phone` bigint NOT NULL,
-  `telegram` varchar(58) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL,
+  `phone` bigint DEFAULT NULL,
+  `telegram` varchar(58) COLLATE utf8mb4_ru_0900_ai_ci DEFAULT NULL,
   `category_id` bigint NOT NULL,
   `city_id` bigint NOT NULL,
+  `type_category_id` bigint DEFAULT NULL,
   `user_id` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `model_categories`
+-- Структура таблицы `model_category`
 --
 
-CREATE TABLE `model_categories` (
+CREATE TABLE `model_category` (
   `id` bigint NOT NULL,
   `name` varchar(30) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `model_category`
+--
+
+INSERT INTO `model_category` (`id`, `name`) VALUES
+(11, 'Авто-Мото'),
+(4, 'Животные'),
+(9, 'Знакомства'),
+(2, 'Компьютеры'),
+(3, 'Мобильная связь'),
+(1, 'Недвижимость'),
+(5, 'Прочее'),
+(7, 'Работа'),
+(10, 'Разное'),
+(8, 'Розыск'),
+(6, 'Услуги');
 
 -- --------------------------------------------------------
 
@@ -99,6 +138,86 @@ CREATE TABLE `model_cities` (
   `id` bigint NOT NULL,
   `name` varchar(30) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `model_cities`
+--
+
+INSERT INTO `model_cities` (`id`, `name`) VALUES
+(2, 'Александровск-Сах.'),
+(3, 'Анива'),
+(4, 'Быков'),
+(5, 'Вахрушев'),
+(6, 'Горнозаводск'),
+(7, 'Долинск'),
+(8, 'Ильинский'),
+(9, 'Корсаков'),
+(10, 'Красногорск'),
+(11, 'Курильск'),
+(12, 'Макаров'),
+(13, 'Невельск'),
+(14, 'Ноглики'),
+(15, 'Онор'),
+(16, 'Оха'),
+(17, 'Поронайск'),
+(18, 'Северо-Курильск'),
+(19, 'Смирных'),
+(20, 'Томари'),
+(21, 'Тымовское'),
+(22, 'Углегорск'),
+(23, 'Холмск'),
+(24, 'Чехов'),
+(25, 'Шахтерск'),
+(26, 'Южно-Курильск'),
+(27, 'Южно-Сахалинск');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `model_setting`
+--
+
+CREATE TABLE `model_setting` (
+  `id` bigint NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_ru_0900_ai_ci DEFAULT NULL,
+  `value` varchar(50) COLLATE utf8mb4_ru_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `model_setting`
+--
+
+INSERT INTO `model_setting` (`id`, `name`, `value`) VALUES
+(1, 'Три объявления в день', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `model_type_category`
+--
+
+CREATE TABLE `model_type_category` (
+  `id` bigint NOT NULL,
+  `name` varchar(30) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `model_type_category`
+--
+
+INSERT INTO `model_type_category` (`id`, `name`) VALUES
+(11, 'Женщины'),
+(7, 'Ищу'),
+(2, 'Куплю'),
+(6, 'Межгород'),
+(5, 'Меняю'),
+(12, 'Мужчины'),
+(10, 'Найдено'),
+(8, 'Предлагаю'),
+(1, 'Продам'),
+(3, 'Сдам'),
+(4, 'Сниму'),
+(9, 'Утеряно');
 
 -- --------------------------------------------------------
 
@@ -123,7 +242,7 @@ CREATE TABLE `model_user` (
 --
 
 INSERT INTO `model_user` (`id`, `account_non_locked`, `confirmation_email`, `date_created_user`, `email`, `enabled`, `ip_address_registration`, `password`, `token`) VALUES
-(4, b'1', b'1', '2023-02-11 12:27:46.488941', 'www@www.www', b'1', '0:0:0:0:0:0:0:1', '$2a$10$yHbcglTrnhUNRBV34.1zlesMmauQs08eiiNh8VWnvur3Lxomj8Doy', NULL);
+(1, b'1', b'1', '2023-02-12 21:35:31.000000', 'www@www.www', b'1', '0:0:0:0:0:0:0:1', '$2a$10$yHbcglTrnhUNRBV34.1zlesMmauQs08eiiNh8VWnvur3Lxomj8Doy', NULL);
 
 -- --------------------------------------------------------
 
@@ -149,6 +268,13 @@ CREATE TABLE `role_admin` (
   `name` varchar(45) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
 
+--
+-- Дамп данных таблицы `role_admin`
+--
+
+INSERT INTO `role_admin` (`id`, `name`) VALUES
+(1, 'ROLE_ADMIN');
+
 -- --------------------------------------------------------
 
 --
@@ -159,6 +285,13 @@ CREATE TABLE `role_user` (
   `id` bigint NOT NULL,
   `name` varchar(45) COLLATE utf8mb4_ru_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `role_user`
+--
+
+INSERT INTO `role_user` (`id`, `name`) VALUES
+(1, 'ROLE_USER');
 
 -- --------------------------------------------------------
 
@@ -192,7 +325,7 @@ CREATE TABLE `seq_a_announcement` (
 --
 
 INSERT INTO `seq_a_announcement` (`next_val`) VALUES
-(1);
+(263);
 
 -- --------------------------------------------------------
 
@@ -226,6 +359,23 @@ CREATE TABLE `seq_a_citys` (
 --
 
 INSERT INTO `seq_a_citys` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `seq_a_type_category`
+--
+
+CREATE TABLE `seq_a_type_category` (
+  `next_val` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `seq_a_type_category`
+--
+
+INSERT INTO `seq_a_type_category` (`next_val`) VALUES
 (1);
 
 -- --------------------------------------------------------
@@ -328,21 +478,18 @@ ALTER TABLE `model_admin`
 --
 ALTER TABLE `model_announcement`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UK_k4tu2no8f28t28km0ngvy5016` (`email`,`phone`,`telegram`),
-  ADD UNIQUE KEY `UK_l1cvtn30yp2lijiukdh5k09e7` (`email`),
-  ADD UNIQUE KEY `UK_qhok989yr51woe9bap8qcgeo4` (`phone`),
-  ADD UNIQUE KEY `UK_lq41fg64ype6is28hu29km5si` (`telegram`),
-  ADD UNIQUE KEY `UK_quvo5fqp8oc67cbwsv1lq7m14` (`category_id`),
-  ADD UNIQUE KEY `UK_4s7qs26clp8pbsih1y51abxly` (`city_id`),
-  ADD UNIQUE KEY `UK_fk73bogq2mm28p9154cddjtu3` (`user_id`);
+  ADD KEY `FKi7gt5qrx9txx59qt8qo6guj67` (`category_id`),
+  ADD KEY `FKd3po1tieb4tni050jwyw61b77` (`city_id`),
+  ADD KEY `FKa6inut3atlwj554sc02sd4kar` (`type_category_id`),
+  ADD KEY `FK1qnex4ojvewmhkr2giwwfd8px` (`user_id`);
 
 --
--- Индексы таблицы `model_categories`
+-- Индексы таблицы `model_category`
 --
-ALTER TABLE `model_categories`
+ALTER TABLE `model_category`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UK_32dpll5wrr99teh6dbpn3x7qq` (`name`),
-  ADD UNIQUE KEY `UK_slfrxn5x67nxfevek7rjkou8b` (`name`);
+  ADD UNIQUE KEY `UK_x2fxv5hyenrr2x1t6e3gjh6` (`name`),
+  ADD UNIQUE KEY `UK_7c57horn8akkloh3av475om0d` (`name`);
 
 --
 -- Индексы таблицы `model_cities`
@@ -351,6 +498,19 @@ ALTER TABLE `model_cities`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `UK_6x6ljk8e6plxs96g6det5x7eb` (`name`),
   ADD UNIQUE KEY `UK_ju30i82664d71y960ck39cpqv` (`name`);
+
+--
+-- Индексы таблицы `model_setting`
+--
+ALTER TABLE `model_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `model_type_category`
+--
+ALTER TABLE `model_type_category`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UK_ebv3khnr02xtnejoeh0lw0is7` (`name`);
 
 --
 -- Индексы таблицы `model_user`
@@ -383,6 +543,16 @@ ALTER TABLE `role_user`
   ADD UNIQUE KEY `UK_jiltx188xdo3iehcnqj8fxfgn` (`name`);
 
 --
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `model_setting`
+--
+ALTER TABLE `model_setting`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Ограничения внешнего ключа сохраненных таблиц
 --
 
@@ -405,8 +575,9 @@ ALTER TABLE `join_user_and_role_user`
 --
 ALTER TABLE `model_announcement`
   ADD CONSTRAINT `FK1qnex4ojvewmhkr2giwwfd8px` FOREIGN KEY (`user_id`) REFERENCES `model_user` (`id`),
-  ADD CONSTRAINT `FK3qdm0igbky7yhixkfo2hlj0pj` FOREIGN KEY (`category_id`) REFERENCES `model_categories` (`id`),
-  ADD CONSTRAINT `FKd3po1tieb4tni050jwyw61b77` FOREIGN KEY (`city_id`) REFERENCES `model_cities` (`id`);
+  ADD CONSTRAINT `FKa6inut3atlwj554sc02sd4kar` FOREIGN KEY (`type_category_id`) REFERENCES `model_type_category` (`id`),
+  ADD CONSTRAINT `FKd3po1tieb4tni050jwyw61b77` FOREIGN KEY (`city_id`) REFERENCES `model_cities` (`id`),
+  ADD CONSTRAINT `FKi7gt5qrx9txx59qt8qo6guj67` FOREIGN KEY (`category_id`) REFERENCES `model_category` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `not_activated_user`

@@ -63,7 +63,7 @@ public class ResetPasswordUserController {
             && !resetUserRequest.email().equals("")
             && resetUserRequest.email().length() >= 8
             && resetUserRequest.email().length() <= 58
-            && !validationRegExp.emailValidationRegExp(resetUserRequest.email())
+            && validationRegExp.emailValidationRegExp(resetUserRequest.email())
             && !limitLogin.isBlocked(request.getRemoteAddr())
             && Boolean.TRUE.equals(serviceJpa.existsUserByEmail(resetUserRequest.email()))) {
 
@@ -91,7 +91,7 @@ public class ResetPasswordUserController {
             || resetUserRequest.token().equals("")
             || resetUserRequest.token().length() != 36
             || limitLogin.isBlocked(request.getRemoteAddr())
-            || validationRegExp.validationTokenRegExp(resetUserRequest.token())) {
+            || !validationRegExp.validationTokenRegExp(resetUserRequest.token())) {
       return new ResponseEntity<>(new MessageResponse(HttpStatus.BAD_REQUEST.value(),STATIC_NO), HttpStatus.OK);
 
     } else {
@@ -138,9 +138,9 @@ public class ResetPasswordUserController {
             && !resetUserRequest.password().equals("")
             && resetUserRequest.password().length() >= 6
             && resetUserRequest.password().length() <= 24
-            && !validationRegExp.passwordValidationRegExp(resetUserRequest.password())
+            && validationRegExp.passwordValidationRegExp(resetUserRequest.password())
             && !limitLogin.isBlocked(request.getRemoteAddr())
-            && !validationRegExp.validationTokenRegExp(resetUserRequest.token())) {
+            && validationRegExp.validationTokenRegExp(resetUserRequest.token())) {
 
       User user = serviceJpa.findUserByToken(resetUserRequest.token()).orElse(new User());
 

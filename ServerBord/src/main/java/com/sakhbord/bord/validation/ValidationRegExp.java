@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 @Service
 public class ValidationRegExp {
 
+    private static final Pattern patternAnnouncement = Pattern.compile("^[0-9а-яА-ЯёЁA-Za-z-/\\\\,. =+«»:;*\"!№#$%@?()]+$");
+
     private static final Pattern onlyLettersCyrillic = Pattern.compile("^[а-яА-Я]+$");
 
     private static final Pattern onlyNumbers = Pattern.compile("^\\d+$");
@@ -27,14 +29,75 @@ public class ValidationRegExp {
     private static final Pattern patternTokenConfirm = Pattern.compile("^([a-z0-9]{8})-([a-z0-9]{4})-([a-z0-9]{4})-([a-z0-9]{4})-([a-z0-9]{12})$");
 
 
+    private static final Pattern patternTelegram = Pattern.compile("^[\\w]+$");
 
 
+    public boolean patternAnnouncement(String value) {
+
+        if (value.equals("")) {
+            return false;
+        } else if (value.length() < 120 || value.length() > 335) {
+            return false;
+        } else {
+            Matcher matcherTelegram = patternAnnouncement.matcher(value);
+
+            // Если валидацию прошли, то true, то есть, ошибок нет
+            return matcherTelegram.matches();
+        }
+
+
+
+    }
+
+
+    public boolean telegramValidationRegExp(String value) {
+
+        Matcher matcherTelegram = patternTelegram.matcher(value);
+
+        // Если валидацию прошли, то true, то есть, ошибок нет
+        return matcherTelegram.matches();
+    }
+
+    public boolean telegramValidationWithEmptyRegExp(String value) {
+
+        if (value.equals("")) {
+            return true;
+        } else if (value.length() < 5 || value.length() > 32) {
+            return false;
+        } else {
+            Matcher matcherTelegram = patternTelegram.matcher(value);
+
+            // Если валидацию прошли, то true, то есть, ошибок нет
+            return matcherTelegram.matches();
+        }
+
+
+    }
 
     public boolean onlyNumbersRegExp(String phone) {
 
         Matcher matcherPhone = onlyNumbers.matcher(phone);
 
-        return !matcherPhone.matches();
+        // Если валидацию прошли, то true, то есть, ошибок нет
+        return matcherPhone.matches();
+    }
+
+    public boolean onlyNumbersWithEmptyRegExp(Long phone) {
+
+        if (phone == null) {
+            return true;
+        } else if (phone != 10) {
+            return false;
+
+        } else {
+            String phomeString = phone.toString();
+            Matcher matcherPhone = onlyNumbers.matcher(phomeString);
+
+            // Если валидацию прошли, то true, то есть, ошибок нет
+            return matcherPhone.matches();
+        }
+
+
     }
 
 
@@ -42,7 +105,22 @@ public class ValidationRegExp {
 
         Matcher matcherEmail = patternEmail.matcher(email);
 
-        return !matcherEmail.matches();
+        return matcherEmail.matches();
+    }
+
+    public boolean emailValidationWithEmptyRegExp(String email) {
+
+        if (email.equals("")) {
+            return true;
+        } else if (email.length() < 8 || email.length() > 58) {
+            return false;
+        } else {
+            Matcher matcherEmail = patternEmail.matcher(email);
+
+            return matcherEmail.matches();
+        }
+
+
     }
 
 
@@ -50,7 +128,7 @@ public class ValidationRegExp {
 
         Matcher matcherPassword = patternPassword.matcher(password);
 
-        return !matcherPassword.matches();
+        return matcherPassword.matches();
     }
 
 
@@ -58,7 +136,7 @@ public class ValidationRegExp {
 
         Matcher matcherPassword = onlyLettersCyrillic.matcher(username);
 
-        return !matcherPassword.matches();
+        return matcherPassword.matches();
     }
 
 
@@ -67,7 +145,7 @@ public class ValidationRegExp {
 
         Matcher matcher = patternTokenConfirm.matcher(token);
 
-        return !matcher.matches();
+        return matcher.matches();
     }
 
 
@@ -76,7 +154,7 @@ public class ValidationRegExp {
 
         Matcher matcher = patternDate.matcher(date);
 
-        return !matcher.matches();
+        return matcher.matches();
 
     }
 
@@ -85,7 +163,7 @@ public class ValidationRegExp {
 
         Matcher matcher = onlyLettersCyrillicAndNumbers.matcher(token);
 
-        return !matcher.matches();
+        return matcher.matches();
     }
 
 

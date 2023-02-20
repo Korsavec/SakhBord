@@ -91,10 +91,19 @@ public interface ServiceJpa {
 
 
 
-    // >>>>>>>>>>>>>>>>>>>> AddMessage USER <<<<<<<<<<<<<<<<<<<<
+    // >>>>>>>>>>>>>>>>>>>> Announcement USER <<<<<<<<<<<<<<<<<<<<
 
     @Transactional
     void saveAnnouncement(Announcement announcement);
+
+
+    String countAnnouncementFull (String startTime, String endTime, String phone, String telegram, String email, String ip);
+    String countAnnouncementWithEmailTelegram (String startTime, String endTime, String telegram, String email, String ip);
+    String countAnnouncementWithPhoneTelegram (String startTime, String endTime, String phone, String telegram, String ip);
+    String countAnnouncementWithPhoneEmail (String startTime, String endTime, String phone, String email, String ip);
+    String countAnnouncementWithPhone (String startTime, String endTime, String phone, String ip);
+    String countAnnouncementWithEmail (String startTime, String endTime, String email, String ip);
+    String countAnnouncementWithTelegram (String startTime, String endTime, String telegram, String ip);
 
 
 

@@ -174,13 +174,49 @@ public class ServiceJpaImpl implements ServiceJpa {
 
 
 
-    // >>>>>>>>>>>>>>>>>>>> AddMessage USER <<<<<<<<<<<<<<<<<<<<
+    // >>>>>>>>>>>>>>>>>>>> Announcement USER <<<<<<<<<<<<<<<<<<<<
 
 
     @Override
     @Transactional
     public void saveAnnouncement(Announcement announcement) {
         announcementRepository.save(announcement);
+    }
+
+
+    @Override
+    public String countAnnouncementFull(String startTime, String endTime, String phone, String telegram, String email, String ip) {
+        return announcementRepository.countAnnouncementFull(startTime, endTime, phone, telegram, email, ip);
+    }
+
+    @Override
+    public String countAnnouncementWithEmailTelegram(String startTime, String endTime, String telegram, String email, String ip) {
+        return announcementRepository.countAnnouncementWithEmailTelegram(startTime, endTime, telegram, email, ip);
+    }
+
+    @Override
+    public String countAnnouncementWithPhoneTelegram(String startTime, String endTime, String phone, String telegram, String ip) {
+        return announcementRepository.countAnnouncementWithPhoneTelegram(startTime, endTime, phone, telegram, ip);
+    }
+
+    @Override
+    public String countAnnouncementWithPhoneEmail(String startTime, String endTime, String phone, String email, String ip) {
+        return announcementRepository.countAnnouncementWithPhoneEmail(startTime, endTime, phone, email, ip);
+    }
+
+    @Override
+    public String countAnnouncementWithPhone(String startTime, String endTime, String phone, String ip) {
+        return announcementRepository.countAnnouncementWithPhone(startTime, endTime, phone, ip);
+    }
+
+    @Override
+    public String countAnnouncementWithEmail(String startTime, String endTime, String email, String ip) {
+        return announcementRepository.countAnnouncementWithEmail(startTime, endTime, email, ip);
+    }
+
+    @Override
+    public String countAnnouncementWithTelegram(String startTime, String endTime, String telegram, String ip) {
+        return announcementRepository.countAnnouncementWithTelegram(startTime, endTime, telegram, ip);
     }
 
 

@@ -5,11 +5,9 @@ import com.sakhbord.bord.models.city.City;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import jakarta.persistence.*;
-import org.hibernate.annotations.NaturalId;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.Instant;
 
 @Entity
 @Table(name = "model_announcement")
@@ -33,26 +31,25 @@ public class Announcement implements Serializable {
 
 
     // Это номер телефона пользователя который разместил объявление
-    @NaturalId
-    @Column(name = "phone", nullable = true, unique = false, length = 10)
+    @Column(name = "phone", length = 10)
     private Long phone;
 
 
     // Это email пользователя, который разместил объявление
-    @NaturalId
-    @Column(name = "email", nullable = true, unique = false, length = 58)
+    @Column(name = "email", length = 58)
     private String email;
 
 
     // Это telegram пользователя, который разместил объявление
-    @NaturalId
-    @Column(name = "telegram", nullable = true, unique = false, length = 58)
+    @Column(name = "telegram", length = 58)
     private String telegram;
 
 
     // Это дата создания объявления
-    @Column(name = "date_created_announcement", nullable = false)
-    private Instant dateCreatedAnnouncement;
+    @Column(name = "date_created_announcement", nullable = false, columnDefinition = "Datetime(6)")
+//    @Column(name="balance", columnDefinition = "Datetime(6)", length = 19)
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String dateCreatedAnnouncement;
 
 
 
@@ -67,27 +64,26 @@ public class Announcement implements Serializable {
 
     // Это ссылка на город
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "city_id", nullable = false, unique = false)
+    @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
     // Это ссылка на категорию
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "category_id", nullable = false, unique = false)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     // Это ссылка на пользователя
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "user_id", nullable = false, unique = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
 
 
 
     // Это тип объявления - куплю, продам,
-    @ManyToOne(cascade = CascadeType.ALL, optional = true)
-    @JoinColumn(name = "type_category_id", nullable = true, unique = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "type_category_id")
     private TypeCategory typeCategory;
-
 
     public Long getId() {
         return id;
@@ -129,11 +125,11 @@ public class Announcement implements Serializable {
         this.telegram = telegram;
     }
 
-    public Instant getDateCreatedAnnouncement() {
+    public String getDateCreatedAnnouncement() {
         return dateCreatedAnnouncement;
     }
 
-    public void setDateCreatedAnnouncement(Instant dateCreatedAnnouncement) {
+    public void setDateCreatedAnnouncement(String dateCreatedAnnouncement) {
         this.dateCreatedAnnouncement = dateCreatedAnnouncement;
     }
 
@@ -184,7 +180,6 @@ public class Announcement implements Serializable {
     public void setTypeCategory(TypeCategory typeCategory) {
         this.typeCategory = typeCategory;
     }
-
 
     @Override
     public boolean equals(Object o) {

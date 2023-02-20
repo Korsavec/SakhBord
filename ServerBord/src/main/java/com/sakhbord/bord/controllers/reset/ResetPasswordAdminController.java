@@ -62,7 +62,7 @@ public class ResetPasswordAdminController {
                 && !resetAdminRequest.email().equals("")
                 && resetAdminRequest.email().length() >= 8
                 && resetAdminRequest.email().length() <= 58
-                && !validationRegExp.emailValidationRegExp(resetAdminRequest.email())
+                && validationRegExp.emailValidationRegExp(resetAdminRequest.email())
                 && !limitLogin.isBlocked(request.getRemoteAddr())
                 && Boolean.TRUE.equals(serviceJpa.existsAdminByEmail(resetAdminRequest.email()))) {
 
@@ -90,7 +90,7 @@ public class ResetPasswordAdminController {
                 || resetAdminRequest.token().equals("")
                 || resetAdminRequest.token().length() != 36
                 || limitLogin.isBlocked(request.getRemoteAddr())
-                || validationRegExp.validationTokenRegExp(resetAdminRequest.token())) {
+                || !validationRegExp.validationTokenRegExp(resetAdminRequest.token())) {
             return new ResponseEntity<>(new MessageResponse(HttpStatus.BAD_REQUEST.value(),STATIC_NO), HttpStatus.OK);
 
         } else {
@@ -121,9 +121,9 @@ public class ResetPasswordAdminController {
                 && !resetAdminRequest.password().equals("")
                 && resetAdminRequest.password().length() >= 6
                 && resetAdminRequest.password().length() <= 24
-                && !validationRegExp.passwordValidationRegExp(resetAdminRequest.password())
+                && validationRegExp.passwordValidationRegExp(resetAdminRequest.password())
                 && !limitLogin.isBlocked(request.getRemoteAddr())
-                && !validationRegExp.validationTokenRegExp(resetAdminRequest.token())) {
+                && validationRegExp.validationTokenRegExp(resetAdminRequest.token())) {
 
             Admin admin = serviceJpa.findAdminByToken(resetAdminRequest.token()).orElse(new Admin());
 
