@@ -1,0 +1,35 @@
+input[type=text], textarea {
+  -webkit-box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+}
+
+input[type=text]:focus, textarea:focus {
+  -webkit-box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  -moz-box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  outline: none;
+}
+
+input[type=password], textarea {
+  -webkit-box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+}
+
+input[type=password]:focus, textarea:focus {
+  -webkit-box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  -moz-box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  outline: none;
+}

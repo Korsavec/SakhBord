@@ -1,0 +1,140 @@
+<div class="flex flex-col min-h-screen">
+  <header>
+
+    <div class="flex flex-row bg-white">
+
+
+      <div class="flex justify-center basis-1/4 text-center">
+        <div class="flex justify-center min-w-185my max-w-200my">
+          <a class="text-logo text-green-dark-sea-wave-my font-bold" routerLink="/">SakhBord</a>
+        </div>
+      </div>
+
+
+      <div class="flex basis-1/2 justify-center items-center">
+        <p class="font-bold">Вход</p>
+
+      </div>
+
+
+
+
+      <div class="flex basis-1/4 justify-end items-center">
+
+        <div (click)="goToPageRegistration()" class="flex hover:bg-hoverButtonMy cursor-pointer text-20my text-black w-240my h-60my align-middle justify-center items-center">
+          Зарегистрироваться
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </header>
+
+
+
+
+
+
+  <main class="flex-1">
+
+
+    <div class="flex grid grid-rows-1 align-middle justify-center pt-5">
+      <div class="flex max-w-1010my mb-[0.625rem] shadow-md rounded-lg bg-white pl-3 pr-3 pt-3 pb-3 grid grid-rows-1">
+
+
+
+
+
+
+
+
+
+
+
+        <div class="w-300my ">
+
+
+
+
+
+
+          <form [formGroup]="loginForm" (submit)="submit()" class="p-4">
+
+
+            <div class="my-5 w-full">
+              <label for="email">Email адрес</label>
+              <br>
+              <input type="text" (ngModelChange)="deleteErrorMessage()" minlength="8" maxlength="45" formControlName="email" id="email" class="text-black text-[28px] p-2 rounded w-full text-sm outline-0" placeholder="Email адрес" required>
+              <div class="w-300my h-25my">
+                <div *ngIf="email.errors?.['pattern']"> Некорректный Email </div>
+              </div>
+            </div>
+
+
+            <div class="my-5 w-full">
+              <label for="password">Пароль</label>
+              <input type="password" (ngModelChange)="deleteErrorMessage()" minlength="6" maxlength="24" formControlName="password" id="password" class="text-[28px] p-2 rounded w-full text-sm outline-0" placeholder="Пароль" required>
+              <div class="w-300my h-25my">
+                <div *ngIf="password.errors?.['minlength']"> Минимальная длина </div>
+                <div *ngIf="password.errors?.['maxlength']"> Максимальная длина </div>
+                <div *ngIf="password.errors?.['pattern']"> Некорректный пароль </div>
+              </div>
+            </div>
+
+
+            <div class="my-5 w-full">
+              <button type="submit" [disabled]="!loginForm.valid" class="p-3 w-full bg-green-dark-sea-wave-my text-white hover:bg-dayColor rounded">
+                Войти
+              </button>
+
+
+            </div>
+
+          </form>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+
+
+  <footer class="flex h-auto grid grid-cols-1">
+
+    <div class="grid grid-cols-6 gap-4">
+
+      <div class="col-start-1 col-end-7 h-45my">
+        <a href="/contact" class="ml-[1.25rem] text-dayColor">Контакты >>></a>
+      </div>
+
+    </div>
+
+  </footer>
+
+</div>

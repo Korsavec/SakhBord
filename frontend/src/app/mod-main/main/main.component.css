@@ -1,0 +1,52 @@
+input[type=text] {
+  -webkit-box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0 0 8px -1px rgba(34, 60, 80, 0.2);
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+}
+
+input[type=text]:focus {
+  -webkit-box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  -moz-box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+  box-shadow: 0 0 5px -1px rgba(34, 60, 80, 0.46);
+}
+
+
+.box-cat-shadow {
+  -webkit-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+
+.pagination {
+  display: inline-block;
+
+}
+
+.pagination a {
+  background: #ffffff;
+  border-radius: 5px;
+  color: black;
+  float: left;
+  width: 1.875rem;
+  height: 1.875rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color .3s;
+  margin: 1px;
+  text-align: center;
+  padding: 0.125rem;
+}
+
+.pagination a.active {
+  background-color: #F1FFFD;
+  color: #000000;
+  border: 1px solid #F1FFFD;
+}
+
+.pagination a:hover:not(.active) {background-color: #F1FFFD;}
