@@ -2,7 +2,7 @@ package com.sakhbord.bord.config;
 
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import com.sakhbord.bord.models.user.User;
-import com.sakhbord.bord.service.jpa.ServiceJpa;
+import com.sakhbord.bord.repository.service.ServiceJpa;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 

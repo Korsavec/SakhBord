@@ -1,4 +1,4 @@
-package com.sakhbord.bord.repository;
+package com.sakhbord.bord.repository.jpa;
 
 import com.sakhbord.bord.models.admin.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;

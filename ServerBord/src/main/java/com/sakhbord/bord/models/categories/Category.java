@@ -3,7 +3,6 @@ package com.sakhbord.bord.models.categories;
 import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
@@ -11,13 +10,8 @@ import java.io.Serializable;
 public class Category implements Serializable {
 
 
-    @Serial
-    private static final long serialVersionUID = 6324278907888678400L;
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_category")
-    @SequenceGenerator(name = "seq_a_category", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -26,7 +20,6 @@ public class Category implements Serializable {
     @NaturalId
     @Column(name = "name", nullable = false, unique = true, length = 30)
     private String name;
-
 
     public Long getId() {
         return id;

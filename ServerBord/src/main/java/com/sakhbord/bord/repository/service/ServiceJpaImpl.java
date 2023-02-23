@@ -1,6 +1,5 @@
-package com.sakhbord.bord.service.jpa;
+package com.sakhbord.bord.repository.service;
 
-import com.sakhbord.bord.enam.RoleEnum;
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import com.sakhbord.bord.models.admin.Admin;
 import com.sakhbord.bord.models.announcement.Announcement;
@@ -10,10 +9,10 @@ import com.sakhbord.bord.models.role.RoleAdmin;
 import com.sakhbord.bord.models.role.RoleUser;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
-import com.sakhbord.bord.repository.*;
-import com.sakhbord.bord.repository.activated.NotActivatedUserRepository;
-import com.sakhbord.bord.repository.role.RoleAdminRepository;
-import com.sakhbord.bord.repository.role.RoleUserRepository;
+import com.sakhbord.bord.repository.jpa.*;
+import com.sakhbord.bord.repository.jpa.activated.NotActivatedUserRepository;
+import com.sakhbord.bord.repository.jpa.role.RoleAdminRepository;
+import com.sakhbord.bord.repository.jpa.role.RoleUserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,19 +25,26 @@ public class ServiceJpaImpl implements ServiceJpa {
 
 
     private final AdminRepository adminRepository;
+
     private final UserRepository userRepository;
+
 
     private final AnnouncementRepository announcementRepository;
 
 
+
     private final RoleAdminRepository roleAdminRepository;
+
     private final RoleUserRepository roleUserRepository;
 
 
-    private final CityRepository cityRepository;
-    private final CategoryRepository categoryRepository;
-    private final TypeCategoryRepository typeCategoryRepository;
 
+
+    private final CityRepository cityRepository;
+
+    private final CategoryRepository categoryRepository;
+
+    private final TypeCategoryRepository typeCategoryRepository;
 
 
     private final NotActivatedUserRepository notActivatedUserRepository;
@@ -54,6 +60,7 @@ public class ServiceJpaImpl implements ServiceJpa {
         this.typeCategoryRepository = typeCategoryRepository;
         this.notActivatedUserRepository = notActivatedUserRepository;
     }
+
 
     // >>>>>>>>>>>>>>>>>>>> User <<<<<<<<<<<<<<<<<<<<
 
@@ -77,8 +84,8 @@ public class ServiceJpaImpl implements ServiceJpa {
     // RoleUser >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     @Override
-    public RoleUser findRoleUserByRoleEnum(RoleEnum roleEnum) {
-        return roleUserRepository.findRoleUserByRoleEnum(roleEnum);
+    public RoleUser findRoleUserByName(String value) {
+        return roleUserRepository.findRoleUserByName(value);
     }
 
     // User >>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -87,6 +94,12 @@ public class ServiceJpaImpl implements ServiceJpa {
     @Transactional
     public void deleteListUser(Iterable<User> entityList) {
         userRepository.deleteAll(entityList);
+    }
+
+    @Override
+    @Transactional
+    public void deleteUserById(Long value) {
+        userRepository.deleteById(value);
     }
 
     @Override
@@ -140,8 +153,8 @@ public class ServiceJpaImpl implements ServiceJpa {
     // RoleAdmin >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     @Override
-    public RoleAdmin findRoleAdminByRoleEnum(RoleEnum roleEnum) {
-        return roleAdminRepository.findRoleAdminByRoleEnum(roleEnum);
+    public RoleAdmin findRoleAdminByName(String value) {
+        return roleAdminRepository.findRoleAdminByName(value);
     }
 
     // // Admin >>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -176,6 +189,12 @@ public class ServiceJpaImpl implements ServiceJpa {
 
     // >>>>>>>>>>>>>>>>>>>> Announcement USER <<<<<<<<<<<<<<<<<<<<
 
+
+    @Override
+    @Transactional
+    public void deleteAnnouncementById(Long value) {
+        announcementRepository.deleteById(value);
+    }
 
     @Override
     @Transactional
@@ -218,6 +237,16 @@ public class ServiceJpaImpl implements ServiceJpa {
     public String countAnnouncementWithTelegram(String startTime, String endTime, String telegram, String ip) {
         return announcementRepository.countAnnouncementWithTelegram(startTime, endTime, telegram, ip);
     }
+
+    public Optional<Announcement> announcementFindList(Long value) {
+        return announcementRepository.findById(value);
+    }
+
+    public List<Announcement> announcementFindAll() {
+        return announcementRepository.findAll();
+    }
+
+
 
 
     // >>>>>>>>>>>>>>>>>>>> CityRepository <<<<<<<<<<<<<<<<<<<<

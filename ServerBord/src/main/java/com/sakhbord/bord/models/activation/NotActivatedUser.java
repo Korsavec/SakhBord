@@ -3,34 +3,28 @@ package com.sakhbord.bord.models.activation;
 import com.sakhbord.bord.models.user.User;
 import jakarta.persistence.*;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
-@Table(name = "not_activated_user")
+@Table(name = "model_not_activated_user")
 public class NotActivatedUser implements Serializable {
 
-
-    @Serial
-    private static final long serialVersionUID = 195655790623562467L;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_not_activated_user")
-    @SequenceGenerator(name = "seq_not_activated_user", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
     // Это дата удаления аккаунта с неподтверждённым адресом электронной почты
-    @Column(name = "date_deletion_user")
+    @Column(name = "date_deletion_user", nullable = false)
     private Instant dateDeletionUser;
 
     // Активирован аккаунт или нет
     @Column(name = "active", nullable = false, length = 1)
     private boolean active;
 
-    // Ссылка на сущность пользователя User
-    @OneToOne(fetch = FetchType.LAZY)
+
+    @OneToOne(orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

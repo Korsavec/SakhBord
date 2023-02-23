@@ -7,7 +7,7 @@ import com.sakhbord.bord.models.payload.request.message.AddMessageRequest;
 import com.sakhbord.bord.models.payload.response.MessageResponse;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
-import com.sakhbord.bord.service.jpa.ServiceJpa;
+import com.sakhbord.bord.repository.service.ServiceJpa;
 import com.sakhbord.bord.validation.ValidationRegExp;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -25,10 +25,10 @@ import static com.sakhbord.bord.filter.CategoryTypeFilter.*;
 
 @RestController
 @RequestMapping("/api/AccountGuard")
-public class AddMessageController {
+public class AddAnnouncementController {
 
 
-    private static final String FORMAT = "yyyy-MM-dd HH:mm:ss.SSSSSS";
+    private static final String FORMAT = "yyyy-MM-dd HH:mm:ss.SSSSS";
 
     private static final String MESSAGE_ERROR = "Internal Server Error";
 
@@ -36,14 +36,14 @@ public class AddMessageController {
     private final ValidationRegExp validationRegExp;
 
 
-    public AddMessageController(ServiceJpa serviceJpa, ValidationRegExp validationRegExp) {
+    public AddAnnouncementController(ServiceJpa serviceJpa, ValidationRegExp validationRegExp) {
         this.serviceJpa = serviceJpa;
         this.validationRegExp = validationRegExp;
     }
 
-    @PostMapping(value = "/addMessage", produces = "application/json")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<MessageResponse> addMessage(@RequestBody AddMessageRequest addMessageRequest, HttpServletRequest request) {
+    @PostMapping(value = "/addAnnouncement", produces = "application/json")
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    public ResponseEntity<MessageResponse> addAnnouncement(@RequestBody AddMessageRequest addMessageRequest, HttpServletRequest request) {
 
 
         String cityRequest = selectCity(addMessageRequest.selectCity());
@@ -53,15 +53,14 @@ public class AddMessageController {
 
 
 
-        if (!(validationRegExp.patternAnnouncement(addMessageRequest.message())
-                && !cityRequest.equals("")
-                && !departamentRequest.equals("")
-                && !(typeRequest.equals("") && noType.equals("type"))
-                && !(addMessageRequest.emailAddress().equals("") && addMessageRequest.telegram().equals("")
-                && addMessageRequest.phoneNumber() == null))) {
+        if (!validationRegExp.patternAnnouncement(addMessageRequest.message())
+                || cityRequest.equals("")
+                || departamentRequest.equals("")
+                || (typeRequest.equals("") && noType.equals("type"))
+                || (addMessageRequest.emailAddress().equals("") && addMessageRequest.telegram().equals("")
+                && addMessageRequest.phoneNumber() == null)) {
             return addError();
         }
-
 
         if (!validationRegExp.onlyNumbersWithEmptyRegExp(addMessageRequest.phoneNumber())
                 || !validationRegExp.emailValidationWithEmptyRegExp(addMessageRequest.emailAddress())

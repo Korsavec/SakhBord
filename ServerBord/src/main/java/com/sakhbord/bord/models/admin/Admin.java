@@ -4,7 +4,6 @@ import com.sakhbord.bord.models.role.RoleAdmin;
 import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -13,12 +12,9 @@ import java.util.Set;
 @Table(name = "model_admin")
 public class Admin implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 6669976518037084669L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_admin")
-    @SequenceGenerator(name = "seq_a_admin")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -47,11 +43,11 @@ public class Admin implements Serializable {
 
 
     // Это таблица связей ManyToMany PrivatePerson и RoleUser
-    @ManyToMany(cascade = {CascadeType.MERGE})
-    @JoinTable(name = "join_admin_and_role_admin",
-            joinColumns = @JoinColumn(name = "admin_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_admin_id", referencedColumnName = "id"))
-    private Set<RoleAdmin> adminRoles = new LinkedHashSet<>();
+    @ManyToMany
+    @JoinTable(name = "model_admin_role_admins",
+            joinColumns = @JoinColumn(name = "admin_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_admins_id"))
+    private Set<RoleAdmin> roleAdmins = new LinkedHashSet<>();
 
     public Long getId() {
         return id;
@@ -101,14 +97,13 @@ public class Admin implements Serializable {
         this.accountNonLocked = accountNonLocked;
     }
 
-    public Set<RoleAdmin> getAdminRoles() {
-        return adminRoles;
+    public Set<RoleAdmin> getRoleAdmins() {
+        return roleAdmins;
     }
 
-    public void setAdminRoles(Set<RoleAdmin> adminRoles) {
-        this.adminRoles = adminRoles;
+    public void setRoleAdmins(Set<RoleAdmin> roleAdmins) {
+        this.roleAdmins = roleAdmins;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -120,8 +115,7 @@ public class Admin implements Serializable {
         if (!getId().equals(admin.getId())) return false;
         if (!getEmail().equals(admin.getEmail())) return false;
         if (!getPassword().equals(admin.getPassword())) return false;
-        if (!getToken().equals(admin.getToken())) return false;
-        return getAdminRoles().equals(admin.getAdminRoles());
+        return getRoleAdmins().equals(admin.getRoleAdmins());
     }
 
     @Override
@@ -130,9 +124,8 @@ public class Admin implements Serializable {
         result = 31 * result + getEmail().hashCode();
         result = 31 * result + getPassword().hashCode();
         result = 31 * result + (isEnabled() ? 1 : 0);
-        result = 31 * result + getToken().hashCode();
         result = 31 * result + (isAccountNonLocked() ? 1 : 0);
-        result = 31 * result + getAdminRoles().hashCode();
+        result = 31 * result + getRoleAdmins().hashCode();
         return result;
     }
 }

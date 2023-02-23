@@ -1,6 +1,5 @@
-package com.sakhbord.bord.service.jpa;
+package com.sakhbord.bord.repository.service;
 
-import com.sakhbord.bord.enam.RoleEnum;
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import com.sakhbord.bord.models.admin.Admin;
 import com.sakhbord.bord.models.announcement.Announcement;
@@ -37,12 +36,13 @@ public interface ServiceJpa {
 
     // RoleUser >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    RoleUser findRoleUserByRoleEnum(RoleEnum roleEnum);
+    RoleUser findRoleUserByName(String value);
 
     // User >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     @Transactional
     void deleteListUser(Iterable<User> entityList);
+    void deleteUserById(Long value);
 
     Boolean existsUserByEmail(String email);
 
@@ -73,7 +73,7 @@ public interface ServiceJpa {
 
     // RoleAdmin >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    RoleAdmin findRoleAdminByRoleEnum(RoleEnum roleEnum);
+    RoleAdmin findRoleAdminByName(String value);
 
     // Admin >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -95,6 +95,7 @@ public interface ServiceJpa {
 
     @Transactional
     void saveAnnouncement(Announcement announcement);
+    void deleteAnnouncementById(Long value);
 
 
     String countAnnouncementFull (String startTime, String endTime, String phone, String telegram, String email, String ip);
@@ -104,6 +105,9 @@ public interface ServiceJpa {
     String countAnnouncementWithPhone (String startTime, String endTime, String phone, String ip);
     String countAnnouncementWithEmail (String startTime, String endTime, String email, String ip);
     String countAnnouncementWithTelegram (String startTime, String endTime, String telegram, String ip);
+
+    Optional<Announcement> announcementFindList(Long value);
+    List<Announcement> announcementFindAll();
 
 
 

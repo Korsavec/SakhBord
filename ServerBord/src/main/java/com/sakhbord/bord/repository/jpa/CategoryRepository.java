@@ -1,6 +1,6 @@
-package com.sakhbord.bord.repository;
+package com.sakhbord.bord.repository.jpa;
 
-import com.sakhbord.bord.models.city.City;
+import com.sakhbord.bord.models.categories.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,10 +9,8 @@ import java.util.Optional;
 
 @Transactional(readOnly = true)
 @Repository
-public interface CityRepository extends JpaRepository<City, Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-
-    Optional<City> findCityByName(String name);
-
+    Optional<Category> findCategoryByName(String name);
 
 }

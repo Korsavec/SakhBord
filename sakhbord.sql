@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Фев 20 2023 г., 10:50
+-- Время создания: Фев 22 2023 г., 07:49
 -- Версия сервера: 8.0.29
 -- Версия PHP: 8.1.11
 
@@ -99,6 +99,14 @@ CREATE TABLE `model_announcement` (
   `type_category_id` bigint DEFAULT NULL,
   `user_id` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_ru_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `model_announcement`
+--
+
+INSERT INTO `model_announcement` (`id`, `date_created_announcement`, `email`, `enabled`, `ip_address_registration`, `message`, `phone`, `telegram`, `category_id`, `city_id`, `type_category_id`, `user_id`) VALUES
+(298, '2023-02-22 18:45:16.242470', 'www@www.www', b'1', '0:0:0:0:0:0:0:1', '111 eeee rrrrrrrr ttttttttt jjjjjjjj fffffffffff ssssssssss kkkkkkkk vvvvvvvvv nnnnnnnnn mmmmmmmmm xxxxxx ddddddddd aaaaaaa', NULL, NULL, 1, 3, 1, 1),
+(299, '2023-02-22 18:45:56.723540', 'www@www.www', b'1', '0:0:0:0:0:0:0:1', '222 eeee rrrrrrrr ttttttttt jjjjjjjj fffffffffff ssssssssss kkkkkkkk vvvvvvvvv nnnnnnnnn mmmmmmmmm xxxxxx ddddddddd aaaaaaa', NULL, NULL, 6, 6, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -325,7 +333,7 @@ CREATE TABLE `seq_a_announcement` (
 --
 
 INSERT INTO `seq_a_announcement` (`next_val`) VALUES
-(263);
+(301);
 
 -- --------------------------------------------------------
 

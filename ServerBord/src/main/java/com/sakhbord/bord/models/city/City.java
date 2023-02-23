@@ -3,20 +3,15 @@ package com.sakhbord.bord.models.city;
 import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "model_cities")
+@Table(name = "model_city")
 public class City implements Serializable {
 
 
-    @Serial
-    private static final long serialVersionUID = 8995018821000150140L;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_citys")
-    @SequenceGenerator(name = "seq_a_citys", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -41,7 +36,6 @@ public class City implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
 
     @Override
     public boolean equals(Object o) {

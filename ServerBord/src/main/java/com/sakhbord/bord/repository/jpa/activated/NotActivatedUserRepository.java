@@ -1,4 +1,4 @@
-package com.sakhbord.bord.repository.activated;
+package com.sakhbord.bord.repository.jpa.activated;
 
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -6,16 +6,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class UserDetailsImpl implements UserDetails, Serializable {
-
-  @Serial
-  private static final long serialVersionUID = 2903866599750931125L;
 
   private final Long id;
 
@@ -41,7 +37,7 @@ public class UserDetailsImpl implements UserDetails, Serializable {
   public static UserDetailsImpl build(User user) {
 
     List<SimpleGrantedAuthority> authorities = user.getRoleUsers().stream()
-            .map(role -> new SimpleGrantedAuthority(role.getRoleEnum().name())).toList();
+            .map(role -> new SimpleGrantedAuthority(role.getName())).toList();
 
     return new UserDetailsImpl(
             user.getId(),
@@ -56,8 +52,8 @@ public class UserDetailsImpl implements UserDetails, Serializable {
 
   public static UserDetailsImpl build(Admin admin) {
 
-    List<SimpleGrantedAuthority> authorities = admin.getAdminRoles().stream()
-            .map(role -> new SimpleGrantedAuthority(role.getRoleEnum().name())).toList();
+    List<SimpleGrantedAuthority> authorities = admin.getRoleAdmins().stream()
+            .map(role -> new SimpleGrantedAuthority(role.getName())).toList();
 
     return new UserDetailsImpl(
             admin.getId(),

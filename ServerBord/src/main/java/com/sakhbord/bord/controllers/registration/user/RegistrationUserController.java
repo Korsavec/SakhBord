@@ -1,16 +1,15 @@
 package com.sakhbord.bord.controllers.registration.user;
 
 import com.sakhbord.bord.email.SendEmail;
-import com.sakhbord.bord.enam.RoleEnum;
 import com.sakhbord.bord.models.activation.NotActivatedUser;
 import com.sakhbord.bord.models.payload.request.user.RegistrationUserRequest;
 import com.sakhbord.bord.models.payload.response.MessageResponse;
 import com.sakhbord.bord.models.role.RoleUser;
 import com.sakhbord.bord.models.token.Token;
 import com.sakhbord.bord.models.user.User;
+import com.sakhbord.bord.repository.service.ServiceJpa;
 import com.sakhbord.bord.service.cache.LoginAttemptService;
 import com.sakhbord.bord.service.cache.RegistrationAttemptService;
-import com.sakhbord.bord.service.jpa.ServiceJpa;
 import com.sakhbord.bord.validation.ValidationRegExp;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -111,7 +110,7 @@ public class RegistrationUserController {
 
 
         Set<RoleUser> roleUsers = new LinkedHashSet<>();
-        RoleUser roleUser = serviceJpa.findRoleUserByRoleEnum(RoleEnum.ROLE_USER);
+        RoleUser roleUser = serviceJpa.findRoleUserByName("ROLE_USER");
         roleUsers.add(roleUser);
         user.setRoleUsers(roleUsers);
         serviceJpa.saveUser(user);

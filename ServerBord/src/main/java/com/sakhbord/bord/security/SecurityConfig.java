@@ -85,7 +85,9 @@ public class SecurityConfig {
 
 
 
-            .requestMatchers(API_GUARD_ADD_MESSAGE).permitAll()
+            .requestMatchers(API_GUARD_ADD_ANNOUNCEMENT).permitAll()
+
+            .requestMatchers(API_GUARD_GET_ANNOUNCEMENT).permitAll()
 
 
 

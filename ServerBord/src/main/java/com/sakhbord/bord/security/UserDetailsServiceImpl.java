@@ -2,7 +2,7 @@ package com.sakhbord.bord.security;
 
 import com.sakhbord.bord.models.admin.Admin;
 import com.sakhbord.bord.models.user.User;
-import com.sakhbord.bord.service.jpa.ServiceJpa;
+import com.sakhbord.bord.repository.service.ServiceJpa;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -34,7 +34,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     if (request.getRequestURI().equals(API_SINGLETON_LOGIN_USER)
             || request.getRequestURI().equals(API_SINGLETON_GUARD_USER)
-            || request.getRequestURI().equals(API_SINGLETON_GUARD_ADD_MESSAGE)) {
+            || request.getRequestURI().equals(API_SINGLETON_GUARD_ADD_ANNOUNCEMENT)
+            || request.getRequestURI().equals(API_SINGLETON_GUARD_GET_ANNOUNCEMENT)) {
 
       User user = serviceJpa.findUserByEmail(email).orElseThrow(() -> new UsernameNotFoundException("no"));
       return UserDetailsImpl.build(user);

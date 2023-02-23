@@ -86,7 +86,7 @@ public class ValidationRegExp {
 
         if (phone == null) {
             return true;
-        } else if (phone != 10) {
+        } else if (phone.toString().length() != 10) {
             return false;
 
         } else {

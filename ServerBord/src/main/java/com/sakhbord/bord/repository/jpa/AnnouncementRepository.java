@@ -1,4 +1,4 @@
-package com.sakhbord.bord.repository;
+package com.sakhbord.bord.repository.jpa;
 
 import com.sakhbord.bord.models.announcement.Announcement;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -74,8 +74,6 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
                                          @Param("endDate") String endTime,
                                          @Param("telegram") String telegram,
                                          @Param("ip") String ip);
-
-
 
 
 }

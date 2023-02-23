@@ -1,26 +1,25 @@
 package com.sakhbord.bord.models.announcement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.sakhbord.bord.models.categories.Category;
 import com.sakhbord.bord.models.city.City;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import jakarta.persistence.*;
 
-import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "model_announcement")
+@JsonPropertyOrder({ "id", "message", "phone", "email", "telegram", "date"})
 public class Announcement implements Serializable {
 
 
-    @Serial
-    private static final long serialVersionUID = -997853914176842258L;
-
     // Это ID объявления
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_announcement")
-    @SequenceGenerator(name = "seq_a_announcement", allocationSize = 2)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -46,42 +45,40 @@ public class Announcement implements Serializable {
 
 
     // Это дата создания объявления
+    @JsonProperty("date")
     @Column(name = "date_created_announcement", nullable = false, columnDefinition = "Datetime(6)")
-//    @Column(name="balance", columnDefinition = "Datetime(6)", length = 19)
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String dateCreatedAnnouncement;
 
 
 
     // Это включено или выключено объявление
+    @JsonIgnore
     @Column(name = "enabled", nullable = false, length = 1)
     private boolean enabled;
 
 
     // Это ip адрес с которого было размещено объявление
+    @JsonIgnore
     @Column(name = "ip_address_registration", nullable = false, length = 39)
     private String ipAddressRegistration;
 
-    // Это ссылка на город
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
-    // Это ссылка на категорию
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    // Это ссылка на пользователя
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-
-
-
-    // Это тип объявления - куплю, продам,
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_category_id")
     private TypeCategory typeCategory;
 
@@ -149,6 +146,14 @@ public class Announcement implements Serializable {
         this.ipAddressRegistration = ipAddressRegistration;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public City getCity() {
         return city;
     }
@@ -165,14 +170,6 @@ public class Announcement implements Serializable {
         this.category = category;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public TypeCategory getTypeCategory() {
         return typeCategory;
     }
@@ -180,6 +177,7 @@ public class Announcement implements Serializable {
     public void setTypeCategory(TypeCategory typeCategory) {
         this.typeCategory = typeCategory;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -189,14 +187,11 @@ public class Announcement implements Serializable {
         if (isEnabled() != that.isEnabled()) return false;
         if (!getId().equals(that.getId())) return false;
         if (!getMessage().equals(that.getMessage())) return false;
-        if (!getPhone().equals(that.getPhone())) return false;
-        if (!getEmail().equals(that.getEmail())) return false;
-        if (!getTelegram().equals(that.getTelegram())) return false;
         if (!getDateCreatedAnnouncement().equals(that.getDateCreatedAnnouncement())) return false;
         if (!getIpAddressRegistration().equals(that.getIpAddressRegistration())) return false;
+        if (!getUser().equals(that.getUser())) return false;
         if (!getCity().equals(that.getCity())) return false;
         if (!getCategory().equals(that.getCategory())) return false;
-        if (!getUser().equals(that.getUser())) return false;
         return getTypeCategory().equals(that.getTypeCategory());
     }
 
@@ -204,15 +199,12 @@ public class Announcement implements Serializable {
     public int hashCode() {
         int result = getId().hashCode();
         result = 31 * result + getMessage().hashCode();
-        result = 31 * result + getPhone().hashCode();
-        result = 31 * result + getEmail().hashCode();
-        result = 31 * result + getTelegram().hashCode();
         result = 31 * result + getDateCreatedAnnouncement().hashCode();
         result = 31 * result + (isEnabled() ? 1 : 0);
         result = 31 * result + getIpAddressRegistration().hashCode();
+        result = 31 * result + getUser().hashCode();
         result = 31 * result + getCity().hashCode();
         result = 31 * result + getCategory().hashCode();
-        result = 31 * result + getUser().hashCode();
         result = 31 * result + getTypeCategory().hashCode();
         return result;
     }

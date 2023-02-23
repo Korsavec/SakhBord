@@ -1,11 +1,13 @@
 package com.sakhbord.bord.models.user;
 
 import com.sakhbord.bord.models.activation.NotActivatedUser;
+import com.sakhbord.bord.models.announcement.Announcement;
 import com.sakhbord.bord.models.role.RoleUser;
 import jakarta.persistence.*;
 import org.hibernate.annotations.NaturalId;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.LinkedHashSet;
@@ -15,12 +17,9 @@ import java.util.Set;
 @Table(name = "model_user")
 public class User implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -8836759867097004637L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_a_user")
-    @SequenceGenerator(name = "seq_a_user", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -61,23 +60,22 @@ public class User implements Serializable {
     private String ipAddressRegistration;
 
 
-
-    // Это таблица связей ManyToMany User и RoleUser
-    @ManyToMany(cascade = {CascadeType.MERGE})
-    @JoinTable(name = "join_user_and_role_user",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_user_id", referencedColumnName = "id"))
-    private Set<RoleUser> roleUsers = new LinkedHashSet<>();
-
-
-    // Сущность активации аккаунта
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private NotActivatedUser notActivatedUser;
-
-
     // Установите значение true, если адрес электронной почты подтверждён
     @Column(name = "confirmation_email", nullable = false, length = 1)
     private boolean confirmationEmail;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Set<Announcement> announcements = new LinkedHashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "join_user_and_role_users",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_users_id"))
+    private Set<RoleUser> roleUsers = new LinkedHashSet<>();
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private NotActivatedUser notActivatedUser;
 
 
     public Long getId() {
@@ -144,6 +142,22 @@ public class User implements Serializable {
         this.ipAddressRegistration = ipAddressRegistration;
     }
 
+    public boolean isConfirmationEmail() {
+        return confirmationEmail;
+    }
+
+    public void setConfirmationEmail(boolean confirmationEmail) {
+        this.confirmationEmail = confirmationEmail;
+    }
+
+    public Set<Announcement> getAnnouncements() {
+        return announcements;
+    }
+
+    public void setAnnouncements(Set<Announcement> announcements) {
+        this.announcements = announcements;
+    }
+
     public Set<RoleUser> getRoleUsers() {
         return roleUsers;
     }
@@ -160,15 +174,6 @@ public class User implements Serializable {
         this.notActivatedUser = notActivatedUser;
     }
 
-    public boolean isConfirmationEmail() {
-        return confirmationEmail;
-    }
-
-    public void setConfirmationEmail(boolean confirmationEmail) {
-        this.confirmationEmail = confirmationEmail;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -180,9 +185,9 @@ public class User implements Serializable {
         if (!getId().equals(user.getId())) return false;
         if (!getEmail().equals(user.getEmail())) return false;
         if (!getPassword().equals(user.getPassword())) return false;
-        if (!getToken().equals(user.getToken())) return false;
         if (!getDateCreatedUser().equals(user.getDateCreatedUser())) return false;
         if (!getIpAddressRegistration().equals(user.getIpAddressRegistration())) return false;
+        if (!getAnnouncements().equals(user.getAnnouncements())) return false;
         if (!getRoleUsers().equals(user.getRoleUsers())) return false;
         return getNotActivatedUser().equals(user.getNotActivatedUser());
     }
@@ -193,13 +198,13 @@ public class User implements Serializable {
         result = 31 * result + getEmail().hashCode();
         result = 31 * result + getPassword().hashCode();
         result = 31 * result + (isEnabled() ? 1 : 0);
-        result = 31 * result + getToken().hashCode();
         result = 31 * result + (isAccountNonLocked() ? 1 : 0);
         result = 31 * result + getDateCreatedUser().hashCode();
         result = 31 * result + getIpAddressRegistration().hashCode();
+        result = 31 * result + (isConfirmationEmail() ? 1 : 0);
+        result = 31 * result + getAnnouncements().hashCode();
         result = 31 * result + getRoleUsers().hashCode();
         result = 31 * result + getNotActivatedUser().hashCode();
-        result = 31 * result + (isConfirmationEmail() ? 1 : 0);
         return result;
     }
 }

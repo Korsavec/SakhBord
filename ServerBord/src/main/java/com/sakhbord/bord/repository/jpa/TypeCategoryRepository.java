@@ -1,4 +1,4 @@
-package com.sakhbord.bord.repository;
+package com.sakhbord.bord.repository.jpa;
 
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
