@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FronteEnd/FronteEnd.iml" filepath="$PROJECT_DIR$/FronteEnd/FronteEnd.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/SakhBord.iml" filepath="$PROJECT_DIR$/.idea/SakhBord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SakhBord.iml" filepath="$PROJECT_DIR$/SakhBord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend.iml" filepath="$PROJECT_DIR$/frontend.iml" />
     </modules>
   </component>
 </project>

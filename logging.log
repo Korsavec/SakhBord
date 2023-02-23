@@ -1366,3 +1366,42 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2023-02-24T04:36:34.790+11:00  INFO 2356 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-02-24T04:36:34.795+11:00  INFO 2356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-02-24T04:36:34.798+11:00  INFO 2356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T05:43:04.068+11:00  INFO 15320 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 15320 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T05:43:04.071+11:00 DEBUG 15320 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T05:43:04.072+11:00  INFO 15320 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T05:43:04.536+11:00  INFO 15320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T05:43:04.599+11:00  INFO 15320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 9 JPA repository interfaces.
+2023-02-24T05:43:05.005+11:00  INFO 15320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T05:43:05.013+11:00  INFO 15320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T05:43:05.013+11:00  INFO 15320 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T05:43:05.073+11:00  INFO 15320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T05:43:05.074+11:00  INFO 15320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 971 ms
+2023-02-24T05:43:05.182+11:00  INFO 15320 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T05:43:05.224+11:00  INFO 15320 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T05:43:05.350+11:00  WARN 15320 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T05:43:05.440+11:00  INFO 15320 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T05:43:05.543+11:00  INFO 15320 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4afd65fd
+2023-02-24T05:43:05.544+11:00  INFO 15320 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T05:43:05.555+11:00  INFO 15320 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T05:43:05.556+11:00  WARN 15320 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T05:43:06.181+11:00  INFO 15320 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T05:43:06.746+11:00 DEBUG 15320 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T05:43:07.034+11:00  INFO 15320 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21f48f6c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16745ba7, org.springframework.security.web.context.SecurityContextHolderFilter@3272c5b3, org.springframework.security.web.header.HeaderWriterFilter@542aba71, org.springframework.web.filter.CorsFilter@136ccbfe, org.springframework.security.web.authentication.logout.LogoutFilter@5b7e2a88, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52db9036, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76a90ecb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c9518ee, org.springframework.security.web.session.SessionManagementFilter@2ddb260e, org.springframework.security.web.access.ExceptionTranslationFilter@796434a3, org.springframework.security.web.access.intercept.AuthorizationFilter@6c8b6782]
+2023-02-24T05:43:07.197+11:00  INFO 15320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T05:43:07.204+11:00  INFO 15320 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 3.449 seconds (process running for 3.891)
+2023-02-24T05:43:40.343+11:00  INFO 15320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T05:43:40.343+11:00  INFO 15320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T05:43:40.344+11:00  INFO 15320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T05:43:40.377+11:00  WARN 15320 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:43:43.163+11:00  WARN 15320 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:43:44.108+11:00  WARN 15320 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:43:44.727+11:00  WARN 15320 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:43:44.988+11:00  WARN 15320 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:43:45.262+11:00  WARN 15320 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:43:48.983+11:00  WARN 15320 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:44:02.522+11:00  WARN 15320 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:44:03.688+11:00  WARN 15320 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:44:12.753+11:00  WARN 15320 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type is not supported]
+2023-02-24T05:45:01.997+11:00  INFO 15320 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T05:45:01.998+11:00  INFO 15320 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T05:45:02.005+11:00  INFO 15320 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

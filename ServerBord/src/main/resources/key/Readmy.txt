@@ -1,8 +1,0 @@
-https://www.baeldung.com/java-read-pem-file-keys
-
-В приватном и публичном ключах необходимо удалять -----BEGIN PRIVATE KEY----- и -----BEGIN PUBLIC KEY-----
-и весь ключ делать в одну строчку. Это снимет небольшую нагрузку. Потому что всё это прижётся вырезать и делать в
-одну строку вот таким кодом:
-
-String key = getKeyContent("key/public.pem").replaceAll("\\n", "")
-            .replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
