@@ -4,17 +4,18 @@ public class HttpPath {
 
 
     // Использую константы потому что они одиночно используются в UserDetailsServiceImpl
-    public static final String API_SINGLETON_LOGIN_USER = "/api/auth/loginUser";
-    public static final String API_SINGLETON_GUARD_USER = "/api/AccountGuard/user";
+    public static final String LOGIN_USER = "/api/loginUser";
 
 
-    public static final String API_SINGLETON_LOGIN_ADMIN = "/api/auth/loginAdmin";
-    public static final String API_SINGLETON_GUARD_ADMIN = "/api/AccountGuard/admin";
+    public static final String LOGIN_ADMIN = "/api/loginAdmin";
+    public static final String GUARD_ADMIN = "/api/auth/admin";
 
 
-    public static final String API_SINGLETON_GUARD_ADD_ANNOUNCEMENT = "/api/AccountGuard/addAnnouncement";
+    public static final String GUARD_ADD_ANNOUNCEMENT = "/api/auth/addAnnouncement";
 
-    public static final String API_SINGLETON_GUARD_GET_ANNOUNCEMENT = "/api/data/announcement";
+    public static final String GET_ANNOUNCEMENTS = "/api/data/announcement";
+
+    public static final String RESET_PASS_USER = "/api/resetPasswordUser";
 
 
 
@@ -22,54 +23,23 @@ public class HttpPath {
     }
 
     protected static final String[] API_USER = {
-            "/api/auth/registrationUser",
-            "/api/auth/confirmEmailUser",
-            "/api/auth/resetPasswordUser",
-            "/api/auth/checkTokenUserResetPassword",
-            "/api/auth/newPasswordUser",
-            API_SINGLETON_LOGIN_USER
-    };
-
-    protected static final String[] API_ACCOUNT_GUARD_USER = {
-            API_SINGLETON_GUARD_USER
+            "/api/registrationUser",
+            "/api/confirmEmailUser",
+            RESET_PASS_USER,
+            "/api/checkTokenUserResetPassword",
+            "/api/newPasswordUser",
+            LOGIN_USER
     };
 
     //---
 
     protected static final String[] API_ADMIN = {
-            "/api/auth/resetPasswordAdmin",
-            "/api/auth/checkTokenAdminResetPassword",
-            "/api/auth/newPasswordAdmin",
-            API_SINGLETON_LOGIN_ADMIN
-    };
-
-    protected static final String[] API_ACCOUNT_GUARD_ADMIN = {
-            API_SINGLETON_GUARD_ADMIN,
+            "/api/resetPasswordAdmin",
+            "/api/checkTokenAdminResetPassword",
+            "/api/newPasswordAdmin",
+            LOGIN_ADMIN
     };
 
     //---
-
-    protected static final String[] API_GENERAL = {
-            "/api/checkShopName",
-            "/api/all"
-    };
-
-    //---
-
-    protected static final String[] API_GUARD_PASSPORT = {
-            "/resources/Guard/image/passport/**"
-    };
-
-    //---
-
-    protected static final String[] API_GUARD_ADD_ANNOUNCEMENT = {
-            API_SINGLETON_GUARD_ADD_ANNOUNCEMENT
-    };
-
-    protected static final String[] API_GUARD_GET_ANNOUNCEMENT = {
-            API_SINGLETON_GUARD_GET_ANNOUNCEMENT
-    };
-
-
 
 }

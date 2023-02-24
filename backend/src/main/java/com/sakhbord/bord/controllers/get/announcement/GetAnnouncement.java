@@ -23,6 +23,7 @@ public class GetAnnouncement {
 
 
         return serviceJpa.announcementFindAll();
+
     }
 
 }

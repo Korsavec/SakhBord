@@ -15,28 +15,33 @@ export class HttpRequestService {
   /* Регистрация, аутентификация, сброс пароля */
 
   public registration(user: string): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/registrationUser`, user,
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/registrationUser`, user,
       {observe: 'response'});
   }
 
   public confirmEmail(token: string): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/confirmEmailUser`,
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/confirmEmailUser`,
       {"token": token}, {observe: 'response'});
   }
 
   public resetPassword(userEmail: string): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/resetPasswordUser`, userEmail,
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/resetPasswordUser`, userEmail,
       {observe: 'response'});
+  }
+
+  public checkTokenUserResetPassword(token: string): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/checkTokenUserResetPassword`,
+      {"token": token}, {observe: 'response'});
   }
 
 
   public newPassword(userPassword: string): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/newPasswordUser`, userPassword,
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/newPasswordUser`, userPassword,
       {observe: 'response'});
   }
 
-  public login(user: string): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/loginUser`, user,
+  public loginUser(user: string): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/loginUser`, user,
       {observe: 'response'});
   }
 
@@ -44,7 +49,7 @@ export class HttpRequestService {
   /*--------------------*/
 
   public addAnnouncement(messageBody: string): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/AccountGuard/addAnnouncement`, messageBody,
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/addAnnouncement`, messageBody,
       {observe: 'response'});
   }
 
@@ -57,10 +62,16 @@ export class HttpRequestService {
 
   /*--------------------*/
 
-  /* Тестовый */
-  public userTestGetText(): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.get<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/AccountGuard/user`);
+  public loginAdmin(user: string): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/loginAdmin`, user,
+      {observe: 'response'});
   }
 
+  public admin(admin: string): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.post<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/auth/admin`, admin,
+      {observe: 'response'});
+  }
+
+  /*--------------------*/
 
 }

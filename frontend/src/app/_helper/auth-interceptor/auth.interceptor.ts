@@ -13,23 +13,21 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if (request.url.includes(`${this.host}/api/auth/registrationUser`)
-      || request.url.includes(`${this.host}/api/auth/confirmEmailUser`)
-      || request.url.includes(`${this.host}/api/auth/resetPasswordUser`)
-      || request.url.includes(`${this.host}/api/auth/checkTokenUserResetPassword`)
-      || request.url.includes(`${this.host}/api/auth/newPasswordUser`)
-      || request.url.includes(`${this.host}/api/auth/loginUser`)
-      || request.url.includes(`${this.host}/api/all`)
-      || request.url.includes(`${this.host}/resources/all`)
-      || request.url.includes(`${this.host}/resources/ResourcesGuard/image/**`)) {
+    if (request.url.includes(`${this.host}/api/registrationUser`)
+      || request.url.includes(`${this.host}/api/confirmEmailUser`)
+      || request.url.includes(`${this.host}/api/resetPasswordUser`)
+      || request.url.includes(`${this.host}/api/checkTokenUserResetPassword`)
+      || request.url.includes(`${this.host}/api/newPasswordUser`)
+      || request.url.includes(`${this.host}/api/loginUser`)
+      || request.url.includes(`${this.host}/api/loginAdmin`)) {
       return next.handle(request);
     }
 
 
+    // request.url.includes(`${this.host}/api/auth/admin`
 
     // Для auth-user
-    if (request.url.includes(`${this.host}/api/AccountGuard/user`)
-      || request.url.includes(`${this.host}/api/AccountGuard/addAnnouncement`)) {
+    if (request.url.includes(`${this.host}/api/auth/addAnnouncement`)) {
 
       const token = this.localStorageService.getStorageItem('auth-user');
 
@@ -44,7 +42,29 @@ export class AuthInterceptor implements HttpInterceptor {
 
         return next.handle(modifiedQuery);
 
-      } else if (request.url.includes(`${this.host}/api/data/announcement`)) {
+      } else if (request.url.includes(`${this.host}/api/auth/admin`)) {
+
+        const token = this.localStorageService.getStorageItem('auth-admin');
+
+        if (token) {
+
+          const modifiedQuery = request.clone({
+            setHeaders: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': `application/json`,
+              'Accept': `application/json`,
+            }
+          });
+
+          return next.handle(modifiedQuery);
+
+        }
+
+
+
+
+      } else if (request.url.includes(`${this.host}/api/data/announcement`)
+        || request.url.includes(`${this.host}/api/resetPasswordUser`)) {
 
         const modifiedQuery = request.clone({
           setHeaders: {

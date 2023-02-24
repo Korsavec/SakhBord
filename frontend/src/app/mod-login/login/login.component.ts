@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'Что-то пошло не так. Попробуйте позе';
       this.generalService.isBlockedLogin();
     } else {
-      this.httpRequestService.login(this.loginForm.value).subscribe({
+      this.httpRequestService.loginUser(this.loginForm.value).subscribe({
         next: data => {
 
           let responseData:any;

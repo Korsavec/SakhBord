@@ -32,14 +32,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
 
-    if (request.getRequestURI().equals(API_SINGLETON_LOGIN_USER)
-            || request.getRequestURI().equals(API_SINGLETON_GUARD_USER)
-            || request.getRequestURI().equals(API_SINGLETON_GUARD_ADD_ANNOUNCEMENT)) {
+    if (request.getRequestURI().equals(LOGIN_USER)
+            || request.getRequestURI().equals(GUARD_ADD_ANNOUNCEMENT)) {
 
       User user = serviceJpa.findUserByEmail(email).orElseThrow(() -> new UsernameNotFoundException("no"));
       return UserDetailsImpl.build(user);
 
-    } else if (request.getRequestURI().equals(API_SINGLETON_LOGIN_ADMIN) || request.getRequestURI().equals(API_SINGLETON_GUARD_ADMIN)) {
+    } else if (request.getRequestURI().equals(LOGIN_ADMIN) || request.getRequestURI().equals(GUARD_ADMIN)) {
       Admin admin = serviceJpa.findAdminByEmail(email).orElseThrow(() -> new UsernameNotFoundException("no"));
       return UserDetailsImpl.build(admin);
 

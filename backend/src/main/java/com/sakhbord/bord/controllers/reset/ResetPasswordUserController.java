@@ -24,7 +24,7 @@ import static com.sakhbord.bord.config.Constants.STATIC_NO;
 import static com.sakhbord.bord.config.Constants.STATIC_OK;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api")
 public class ResetPasswordUserController {
 
   @Value("${sakhshop.app.main.site.domain.user}")

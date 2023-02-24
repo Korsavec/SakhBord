@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter;
 import static com.sakhbord.bord.filter.CategoryTypeFilter.*;
 
 @RestController
-@RequestMapping("/api/AccountGuard")
+@RequestMapping("/api/auth")
 public class AddAnnouncementController {
 
 

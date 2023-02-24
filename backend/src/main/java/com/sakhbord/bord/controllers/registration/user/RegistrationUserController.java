@@ -30,7 +30,7 @@ import static com.sakhbord.bord.config.Constants.STATIC_OK;
 import static com.sakhbord.bord.config.Constants.customMessageConfirm;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api")
 public class RegistrationUserController {
 
     private final

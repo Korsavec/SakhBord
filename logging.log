@@ -1964,3 +1964,316 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2023-02-24T14:45:51.252+11:00  INFO 1960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-02-24T14:45:51.253+11:00  INFO 1960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-02-24T14:45:51.258+11:00  INFO 1960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T14:45:54.038+11:00  INFO 20144 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 20144 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T14:45:54.045+11:00 DEBUG 20144 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T14:45:54.045+11:00  INFO 20144 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T14:45:54.409+11:00  INFO 20144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T14:45:54.462+11:00  INFO 20144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 9 JPA repository interfaces.
+2023-02-24T14:45:54.801+11:00  INFO 20144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T14:45:54.807+11:00  INFO 20144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T14:45:54.807+11:00  INFO 20144 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T14:45:54.857+11:00  INFO 20144 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T14:45:54.857+11:00  INFO 20144 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 788 ms
+2023-02-24T14:45:54.942+11:00  INFO 20144 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T14:45:54.965+11:00  INFO 20144 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T14:45:55.048+11:00  WARN 20144 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T14:45:55.114+11:00  INFO 20144 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T14:45:55.198+11:00  INFO 20144 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@98637a2
+2023-02-24T14:45:55.199+11:00  INFO 20144 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T14:45:55.209+11:00  INFO 20144 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T14:45:55.210+11:00  WARN 20144 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T14:45:55.762+11:00  INFO 20144 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T14:45:56.286+11:00 DEBUG 20144 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T14:45:56.527+11:00  INFO 20144 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4fd2b418, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dd5ea90, org.springframework.security.web.context.SecurityContextHolderFilter@340f4723, org.springframework.security.web.header.HeaderWriterFilter@367a245e, org.springframework.web.filter.CorsFilter@45b32dfe, org.springframework.security.web.authentication.logout.LogoutFilter@490e1017, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@347074a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@136d1d58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48c5a07d, org.springframework.security.web.session.SessionManagementFilter@648639f1, org.springframework.security.web.access.ExceptionTranslationFilter@30407f28, org.springframework.security.web.access.intercept.AuthorizationFilter@52d202f0]
+2023-02-24T14:45:56.680+11:00  INFO 20144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T14:45:56.686+11:00  INFO 20144 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.885 seconds (process running for 3.211)
+2023-02-24T14:46:09.434+11:00  INFO 20144 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T14:46:09.435+11:00  INFO 20144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T14:46:09.436+11:00  INFO 20144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T15:16:49.152+11:00  INFO 20144 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T15:16:49.153+11:00  INFO 20144 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T15:16:49.156+11:00  INFO 20144 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T15:16:54.183+11:00  INFO 3320 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 3320 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T15:16:54.185+11:00 DEBUG 3320 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T15:16:54.186+11:00  INFO 3320 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T15:16:54.577+11:00  INFO 3320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T15:16:54.634+11:00  INFO 3320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 9 JPA repository interfaces.
+2023-02-24T15:16:54.971+11:00  INFO 3320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T15:16:54.977+11:00  INFO 3320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T15:16:54.977+11:00  INFO 3320 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T15:16:55.030+11:00  INFO 3320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T15:16:55.030+11:00  INFO 3320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 817 ms
+2023-02-24T15:16:55.115+11:00  INFO 3320 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T15:16:55.139+11:00  INFO 3320 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T15:16:55.221+11:00  WARN 3320 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T15:16:55.288+11:00  INFO 3320 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T15:16:55.371+11:00  INFO 3320 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a6fb62f
+2023-02-24T15:16:55.372+11:00  INFO 3320 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T15:16:55.382+11:00  INFO 3320 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T15:16:55.382+11:00  WARN 3320 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T15:16:55.929+11:00  INFO 3320 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T15:16:56.456+11:00 DEBUG 3320 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T15:16:56.697+11:00  INFO 3320 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b45e264, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3272c5b3, org.springframework.security.web.context.SecurityContextHolderFilter@24fcfdb, org.springframework.security.web.header.HeaderWriterFilter@6980e66a, org.springframework.web.filter.CorsFilter@56846330, org.springframework.security.web.authentication.logout.LogoutFilter@34c21c34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ab1ff80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f0ab520, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@466d6ea5, org.springframework.security.web.session.SessionManagementFilter@7e0fc5d0, org.springframework.security.web.access.ExceptionTranslationFilter@5b6789cf, org.springframework.security.web.access.intercept.AuthorizationFilter@490e1017]
+2023-02-24T15:16:56.845+11:00  INFO 3320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T15:16:56.852+11:00  INFO 3320 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.917 seconds (process running for 3.249)
+2023-02-24T15:17:07.940+11:00  INFO 3320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T15:17:07.941+11:00  INFO 3320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T15:17:07.941+11:00  INFO 3320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-02-24T16:33:40.794+11:00  INFO 3320 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T16:33:40.805+11:00  INFO 3320 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T16:33:40.808+11:00  INFO 3320 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T16:33:43.655+11:00  INFO 6616 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 6616 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T16:33:43.658+11:00 DEBUG 6616 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T16:33:43.659+11:00  INFO 6616 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T16:33:44.086+11:00  INFO 6616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T16:33:44.141+11:00  INFO 6616 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 9 JPA repository interfaces.
+2023-02-24T16:33:44.483+11:00  INFO 6616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T16:33:44.490+11:00  INFO 6616 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T16:33:44.490+11:00  INFO 6616 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T16:33:44.546+11:00  INFO 6616 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T16:33:44.546+11:00  INFO 6616 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 853 ms
+2023-02-24T16:33:44.635+11:00  INFO 6616 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T16:33:44.658+11:00  INFO 6616 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T16:33:44.739+11:00  WARN 6616 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T16:33:44.804+11:00  INFO 6616 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T16:33:44.885+11:00  INFO 6616 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5908e6d6
+2023-02-24T16:33:44.886+11:00  INFO 6616 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T16:33:44.896+11:00  INFO 6616 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T16:33:44.896+11:00  WARN 6616 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T16:33:45.435+11:00  INFO 6616 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T16:33:45.957+11:00 DEBUG 6616 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T16:33:46.204+11:00  INFO 6616 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6984f7d1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fac3ce0, org.springframework.security.web.context.SecurityContextHolderFilter@72c8de78, org.springframework.security.web.header.HeaderWriterFilter@3bd552f7, org.springframework.web.filter.CorsFilter@750a04ec, org.springframework.security.web.authentication.logout.LogoutFilter@5ba4735c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@616b2b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65402e26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e3b41cb, org.springframework.security.web.session.SessionManagementFilter@11c82829, org.springframework.security.web.access.ExceptionTranslationFilter@1bfa398e, org.springframework.security.web.access.intercept.AuthorizationFilter@7b3db079]
+2023-02-24T16:33:46.349+11:00  INFO 6616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T16:33:46.356+11:00  INFO 6616 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.996 seconds (process running for 3.343)
+2023-02-24T16:34:03.750+11:00  INFO 6616 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T16:34:03.750+11:00  INFO 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T16:34:03.751+11:00  INFO 6616 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T16:35:03.351+11:00  INFO 6616 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T16:35:03.352+11:00  INFO 6616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T16:35:03.358+11:00  INFO 6616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T16:35:05.927+11:00  INFO 13340 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 13340 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T16:35:05.930+11:00 DEBUG 13340 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T16:35:05.931+11:00  INFO 13340 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T16:35:06.304+11:00  INFO 13340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T16:35:06.357+11:00  INFO 13340 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 9 JPA repository interfaces.
+2023-02-24T16:35:06.694+11:00  INFO 13340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T16:35:06.700+11:00  INFO 13340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T16:35:06.701+11:00  INFO 13340 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T16:35:06.755+11:00  INFO 13340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T16:35:06.755+11:00  INFO 13340 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 797 ms
+2023-02-24T16:35:06.838+11:00  INFO 13340 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T16:35:06.860+11:00  INFO 13340 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T16:35:06.943+11:00  WARN 13340 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T16:35:07.007+11:00  INFO 13340 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T16:35:07.089+11:00  INFO 13340 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a6fb62f
+2023-02-24T16:35:07.090+11:00  INFO 13340 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T16:35:07.099+11:00  INFO 13340 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T16:35:07.100+11:00  WARN 13340 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T16:35:07.630+11:00  INFO 13340 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T16:35:08.238+11:00 DEBUG 13340 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T16:35:08.478+11:00  INFO 13340 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6ef5e46a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b7e2a88, org.springframework.security.web.context.SecurityContextHolderFilter@34c21c34, org.springframework.security.web.header.HeaderWriterFilter@1bfa398e, org.springframework.web.filter.CorsFilter@56846330, org.springframework.security.web.authentication.logout.LogoutFilter@3e283f1a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72c8de78, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22912968, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6984f7d1, org.springframework.security.web.session.SessionManagementFilter@542aba71, org.springframework.security.web.access.ExceptionTranslationFilter@16d7f503, org.springframework.security.web.access.intercept.AuthorizationFilter@361065d1]
+2023-02-24T16:35:08.617+11:00  INFO 13340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T16:35:08.624+11:00  INFO 13340 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.948 seconds (process running for 3.281)
+2023-02-24T16:35:09.248+11:00  INFO 13340 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T16:35:09.249+11:00  INFO 13340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T16:35:09.249+11:00  INFO 13340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-02-24T16:35:18.874+11:00  INFO 13340 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T16:35:18.876+11:00  INFO 13340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T16:35:18.881+11:00  INFO 13340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T16:35:21.492+11:00  INFO 5460 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 5460 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T16:35:21.494+11:00 DEBUG 5460 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T16:35:21.494+11:00  INFO 5460 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T16:35:21.863+11:00  INFO 5460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T16:35:21.918+11:00  INFO 5460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 9 JPA repository interfaces.
+2023-02-24T16:35:22.262+11:00  INFO 5460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T16:35:22.268+11:00  INFO 5460 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T16:35:22.268+11:00  INFO 5460 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T16:35:22.321+11:00  INFO 5460 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T16:35:22.321+11:00  INFO 5460 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 801 ms
+2023-02-24T16:35:22.405+11:00  INFO 5460 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T16:35:22.428+11:00  INFO 5460 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T16:35:22.513+11:00  WARN 5460 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T16:35:22.581+11:00  INFO 5460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T16:35:22.662+11:00  INFO 5460 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b44bfb8
+2023-02-24T16:35:22.664+11:00  INFO 5460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T16:35:22.673+11:00  INFO 5460 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T16:35:22.674+11:00  WARN 5460 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T16:35:23.209+11:00  INFO 5460 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T16:35:23.735+11:00 DEBUG 5460 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T16:35:23.980+11:00  INFO 5460 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7fe75649, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@713323a3, org.springframework.security.web.context.SecurityContextHolderFilter@210e971e, org.springframework.security.web.header.HeaderWriterFilter@30407f28, org.springframework.web.filter.CorsFilter@6cfbbff7, org.springframework.security.web.authentication.logout.LogoutFilter@51cf17e8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@340f4723, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6193a9e2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4fd2b418, org.springframework.security.web.session.SessionManagementFilter@6f0ab520, org.springframework.security.web.access.ExceptionTranslationFilter@21c7415e, org.springframework.security.web.access.intercept.AuthorizationFilter@52db9036]
+2023-02-24T16:35:24.124+11:00  INFO 5460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T16:35:24.130+11:00  INFO 5460 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.884 seconds (process running for 3.22)
+2023-02-24T17:45:54.645+11:00  INFO 5460 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T17:45:54.647+11:00  INFO 5460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T17:45:54.649+11:00  INFO 5460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T17:45:58.020+11:00  INFO 17668 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 17668 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T17:45:58.023+11:00 DEBUG 17668 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T17:45:58.023+11:00  INFO 17668 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T17:45:58.395+11:00  INFO 17668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T17:45:58.450+11:00  INFO 17668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 9 JPA repository interfaces.
+2023-02-24T17:45:58.792+11:00  INFO 17668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T17:45:58.798+11:00  INFO 17668 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T17:45:58.798+11:00  INFO 17668 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T17:45:58.851+11:00  INFO 17668 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T17:45:58.851+11:00  INFO 17668 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 803 ms
+2023-02-24T17:45:58.935+11:00  INFO 17668 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T17:45:58.958+11:00  INFO 17668 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T17:45:59.038+11:00  WARN 17668 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T17:45:59.107+11:00  INFO 17668 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T17:45:59.189+11:00  INFO 17668 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b44bfb8
+2023-02-24T17:45:59.190+11:00  INFO 17668 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T17:45:59.200+11:00  INFO 17668 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T17:45:59.200+11:00  WARN 17668 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T17:45:59.736+11:00  INFO 17668 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T17:46:00.265+11:00 DEBUG 17668 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T17:46:00.505+11:00  INFO 17668 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5acf51d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@441a2d52, org.springframework.security.web.context.SecurityContextHolderFilter@51cf17e8, org.springframework.security.web.header.HeaderWriterFilter@5c1605e2, org.springframework.web.filter.CorsFilter@6cfbbff7, org.springframework.security.web.authentication.logout.LogoutFilter@30367620, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@490e1017, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ddb260e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@204b1903, org.springframework.security.web.session.SessionManagementFilter@22912968, org.springframework.security.web.access.ExceptionTranslationFilter@4158b72f, org.springframework.security.web.access.intercept.AuthorizationFilter@7fac3ce0]
+2023-02-24T17:46:00.647+11:00  INFO 17668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T17:46:00.653+11:00  INFO 17668 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.891 seconds (process running for 3.23)
+2023-02-24T17:46:04.328+11:00  INFO 17668 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T17:46:04.329+11:00  INFO 17668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T17:46:04.334+11:00  INFO 17668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T17:46:07.110+11:00  INFO 4996 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 4996 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T17:46:07.111+11:00 DEBUG 4996 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T17:46:07.112+11:00  INFO 4996 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T17:46:07.472+11:00  INFO 4996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T17:46:07.527+11:00  INFO 4996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 9 JPA repository interfaces.
+2023-02-24T17:46:07.876+11:00  INFO 4996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T17:46:07.882+11:00  INFO 4996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T17:46:07.882+11:00  INFO 4996 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T17:46:07.936+11:00  INFO 4996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T17:46:07.936+11:00  INFO 4996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 800 ms
+2023-02-24T17:46:08.026+11:00  INFO 4996 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T17:46:08.050+11:00  INFO 4996 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T17:46:08.132+11:00  WARN 4996 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T17:46:08.198+11:00  INFO 4996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T17:46:08.281+11:00  INFO 4996 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b44bfb8
+2023-02-24T17:46:08.283+11:00  INFO 4996 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T17:46:08.293+11:00  INFO 4996 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T17:46:08.293+11:00  WARN 4996 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T17:46:08.856+11:00  INFO 4996 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T17:46:09.408+11:00 DEBUG 4996 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T17:46:09.664+11:00  INFO 4996 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5acf51d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@441a2d52, org.springframework.security.web.context.SecurityContextHolderFilter@51cf17e8, org.springframework.security.web.header.HeaderWriterFilter@5c1605e2, org.springframework.web.filter.CorsFilter@6cfbbff7, org.springframework.security.web.authentication.logout.LogoutFilter@30367620, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@490e1017, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ddb260e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@204b1903, org.springframework.security.web.session.SessionManagementFilter@22912968, org.springframework.security.web.access.ExceptionTranslationFilter@4158b72f, org.springframework.security.web.access.intercept.AuthorizationFilter@7fac3ce0]
+2023-02-24T17:46:09.817+11:00  INFO 4996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T17:46:09.824+11:00  INFO 4996 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.962 seconds (process running for 3.296)
+2023-02-24T17:46:21.255+11:00  INFO 4996 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T17:46:21.255+11:00  INFO 4996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T17:46:21.256+11:00  INFO 4996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T19:20:53.174+11:00  INFO 4996 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T19:20:53.176+11:00  INFO 4996 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T19:20:53.178+11:00  INFO 4996 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T19:20:56.245+11:00  INFO 5840 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 5840 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T19:20:56.248+11:00 DEBUG 5840 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T19:20:56.254+11:00  INFO 5840 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T19:20:56.661+11:00  INFO 5840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T19:20:56.720+11:00  INFO 5840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 9 JPA repository interfaces.
+2023-02-24T19:20:57.068+11:00  INFO 5840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T19:20:57.074+11:00  INFO 5840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T19:20:57.074+11:00  INFO 5840 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T19:20:57.129+11:00  INFO 5840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T19:20:57.129+11:00  INFO 5840 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 845 ms
+2023-02-24T19:20:57.215+11:00  INFO 5840 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T19:20:57.239+11:00  INFO 5840 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T19:20:57.319+11:00  WARN 5840 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T19:20:57.384+11:00  INFO 5840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T19:20:57.467+11:00  INFO 5840 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5908e6d6
+2023-02-24T19:20:57.468+11:00  INFO 5840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T19:20:57.477+11:00  INFO 5840 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T19:20:57.478+11:00  WARN 5840 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T19:20:58.027+11:00  INFO 5840 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T19:20:58.550+11:00 DEBUG 5840 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T19:20:58.799+11:00  INFO 5840 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6984f7d1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fac3ce0, org.springframework.security.web.context.SecurityContextHolderFilter@72c8de78, org.springframework.security.web.header.HeaderWriterFilter@3bd552f7, org.springframework.web.filter.CorsFilter@750a04ec, org.springframework.security.web.authentication.logout.LogoutFilter@5ba4735c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@616b2b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65402e26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e3b41cb, org.springframework.security.web.session.SessionManagementFilter@11c82829, org.springframework.security.web.access.ExceptionTranslationFilter@1bfa398e, org.springframework.security.web.access.intercept.AuthorizationFilter@7b3db079]
+2023-02-24T19:20:58.945+11:00  INFO 5840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T19:20:58.952+11:00  INFO 5840 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 3.016 seconds (process running for 3.379)
+2023-02-24T19:21:01.765+11:00  INFO 5840 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T19:21:01.765+11:00  INFO 5840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T19:21:01.766+11:00  INFO 5840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T19:39:26.233+11:00  INFO 5840 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T19:39:26.234+11:00  INFO 5840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T19:39:26.239+11:00  INFO 5840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T19:39:28.181+11:00  INFO 21120 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 21120 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T19:39:28.183+11:00 DEBUG 21120 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T19:39:28.184+11:00  INFO 21120 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T19:39:28.806+11:00  INFO 21120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T19:39:28.865+11:00  INFO 21120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 9 JPA repository interfaces.
+2023-02-24T19:39:29.225+11:00  INFO 21120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T19:39:29.231+11:00  INFO 21120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T19:39:29.231+11:00  INFO 21120 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T19:39:29.284+11:00  INFO 21120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T19:39:29.285+11:00  INFO 21120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1075 ms
+2023-02-24T19:39:29.371+11:00  INFO 21120 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T19:39:29.394+11:00  INFO 21120 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T19:39:29.474+11:00  WARN 21120 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T19:39:29.539+11:00  INFO 21120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T19:39:29.622+11:00  INFO 21120 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a6fb62f
+2023-02-24T19:39:29.623+11:00  INFO 21120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T19:39:29.633+11:00  INFO 21120 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T19:39:29.633+11:00  WARN 21120 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T19:39:30.169+11:00  INFO 21120 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T19:39:30.696+11:00 DEBUG 21120 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T19:39:30.936+11:00  INFO 21120 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b45e264, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3272c5b3, org.springframework.security.web.context.SecurityContextHolderFilter@24fcfdb, org.springframework.security.web.header.HeaderWriterFilter@6980e66a, org.springframework.web.filter.CorsFilter@56846330, org.springframework.security.web.authentication.logout.LogoutFilter@34c21c34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ab1ff80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f0ab520, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@466d6ea5, org.springframework.security.web.session.SessionManagementFilter@7e0fc5d0, org.springframework.security.web.access.ExceptionTranslationFilter@5b6789cf, org.springframework.security.web.access.intercept.AuthorizationFilter@490e1017]
+2023-02-24T19:39:31.085+11:00  INFO 21120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T19:39:31.092+11:00  INFO 21120 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 3.187 seconds (process running for 3.582)
+2023-02-24T19:58:39.985+11:00  INFO 21120 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T19:58:39.986+11:00  INFO 21120 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T19:58:39.989+11:00  INFO 21120 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-02-24T20:15:31.001+11:00  INFO 21120 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T20:15:31.002+11:00  INFO 21120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T20:15:31.004+11:00  INFO 21120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T20:15:33.552+11:00  INFO 11628 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 11628 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T20:15:33.553+11:00 DEBUG 11628 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T20:15:33.554+11:00  INFO 11628 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T20:15:33.921+11:00  INFO 11628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T20:15:33.976+11:00  INFO 11628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 9 JPA repository interfaces.
+2023-02-24T20:15:34.319+11:00  INFO 11628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T20:15:34.325+11:00  INFO 11628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T20:15:34.325+11:00  INFO 11628 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T20:15:34.380+11:00  INFO 11628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T20:15:34.380+11:00  INFO 11628 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 803 ms
+2023-02-24T20:15:34.466+11:00  INFO 11628 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T20:15:34.489+11:00  INFO 11628 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T20:15:34.572+11:00  WARN 11628 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T20:15:34.638+11:00  INFO 11628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T20:15:34.721+11:00  INFO 11628 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a6fb62f
+2023-02-24T20:15:34.723+11:00  INFO 11628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T20:15:34.732+11:00  INFO 11628 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T20:15:34.733+11:00  WARN 11628 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T20:15:35.278+11:00  INFO 11628 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T20:15:35.804+11:00 DEBUG 11628 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T20:15:36.042+11:00  INFO 11628 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b45e264, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3272c5b3, org.springframework.security.web.context.SecurityContextHolderFilter@24fcfdb, org.springframework.security.web.header.HeaderWriterFilter@6980e66a, org.springframework.web.filter.CorsFilter@56846330, org.springframework.security.web.authentication.logout.LogoutFilter@34c21c34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ab1ff80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f0ab520, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@466d6ea5, org.springframework.security.web.session.SessionManagementFilter@7e0fc5d0, org.springframework.security.web.access.ExceptionTranslationFilter@5b6789cf, org.springframework.security.web.access.intercept.AuthorizationFilter@490e1017]
+2023-02-24T20:15:36.193+11:00  INFO 11628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T20:15:36.200+11:00  INFO 11628 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 2.9 seconds (process running for 3.253)
+2023-02-24T20:15:39.151+11:00  INFO 11628 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T20:15:39.152+11:00  INFO 11628 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T20:15:39.153+11:00  INFO 11628 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T20:15:51.404+11:00  INFO 11628 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T20:15:51.406+11:00  INFO 11628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T20:15:51.410+11:00  INFO 11628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-24T20:15:53.910+11:00  INFO 4400 --- [main] com.sakhbord.bord.BordApplication        : Starting BordApplication using Java 17.0.2 with PID 4400 (D:\Project\SakhBord\backend\target\classes started by Korsavec in D:\Project\SakhBord)
+2023-02-24T20:15:53.912+11:00 DEBUG 4400 --- [main] com.sakhbord.bord.BordApplication        : Running with Spring Boot v3.0.2, Spring v6.0.4
+2023-02-24T20:15:53.912+11:00  INFO 4400 --- [main] com.sakhbord.bord.BordApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-02-24T20:15:54.300+11:00  INFO 4400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-24T20:15:54.358+11:00  INFO 4400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 9 JPA repository interfaces.
+2023-02-24T20:15:54.739+11:00  INFO 4400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-24T20:15:54.746+11:00  INFO 4400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-24T20:15:54.746+11:00  INFO 4400 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-24T20:15:54.802+11:00  INFO 4400 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-24T20:15:54.802+11:00  INFO 4400 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 863 ms
+2023-02-24T20:15:54.888+11:00  INFO 4400 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-24T20:15:54.912+11:00  INFO 4400 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-24T20:15:55.010+11:00  WARN 4400 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-24T20:15:55.085+11:00  INFO 4400 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-24T20:15:55.172+11:00  INFO 4400 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a6fb62f
+2023-02-24T20:15:55.173+11:00  INFO 4400 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-24T20:15:55.183+11:00  INFO 4400 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-24T20:15:55.184+11:00  WARN 4400 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-02-24T20:15:55.731+11:00  INFO 4400 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T20:15:56.265+11:00 DEBUG 4400 --- [main] c.s.b.security.filter.AuthTokenFilter    : Filter 'authTokenFilter' configured for use
+2023-02-24T20:15:56.505+11:00  INFO 4400 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b45e264, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3272c5b3, org.springframework.security.web.context.SecurityContextHolderFilter@24fcfdb, org.springframework.security.web.header.HeaderWriterFilter@6980e66a, org.springframework.web.filter.CorsFilter@56846330, org.springframework.security.web.authentication.logout.LogoutFilter@34c21c34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ab1ff80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f0ab520, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@466d6ea5, org.springframework.security.web.session.SessionManagementFilter@7e0fc5d0, org.springframework.security.web.access.ExceptionTranslationFilter@5b6789cf, org.springframework.security.web.access.intercept.AuthorizationFilter@490e1017]
+2023-02-24T20:15:56.666+11:00  INFO 4400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-24T20:15:56.673+11:00  INFO 4400 --- [main] com.sakhbord.bord.BordApplication        : Started BordApplication in 3.023 seconds (process running for 3.365)
+2023-02-24T20:16:01.412+11:00  INFO 4400 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-24T20:16:01.412+11:00  INFO 4400 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-24T20:16:01.413+11:00  INFO 4400 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-24T20:20:18.583+11:00  INFO 4400 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-24T20:20:18.584+11:00  INFO 4400 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-24T20:20:18.589+11:00  INFO 4400 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

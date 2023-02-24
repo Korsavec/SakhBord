@@ -7,7 +7,7 @@ const routes: Routes = [
 
   { path: '', component: ModLoginComponent, children: [
       { path: '', component: LoginComponent, pathMatch: 'full' }
-    ] },
+    ] }
 
 ];
 
