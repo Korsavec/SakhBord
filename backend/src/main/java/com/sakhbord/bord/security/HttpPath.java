@@ -14,7 +14,7 @@ public class HttpPath {
 
     public static final String API_SINGLETON_GUARD_ADD_ANNOUNCEMENT = "/api/AccountGuard/addAnnouncement";
 
-    public static final String API_SINGLETON_GUARD_GET_ANNOUNCEMENT = "/api/AccountGuard/getAnnouncement";
+    public static final String API_SINGLETON_GUARD_GET_ANNOUNCEMENT = "/api/data/announcement";
 
 
 

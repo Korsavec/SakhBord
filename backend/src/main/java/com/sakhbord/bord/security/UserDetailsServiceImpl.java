@@ -34,8 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     if (request.getRequestURI().equals(API_SINGLETON_LOGIN_USER)
             || request.getRequestURI().equals(API_SINGLETON_GUARD_USER)
-            || request.getRequestURI().equals(API_SINGLETON_GUARD_ADD_ANNOUNCEMENT)
-            || request.getRequestURI().equals(API_SINGLETON_GUARD_GET_ANNOUNCEMENT)) {
+            || request.getRequestURI().equals(API_SINGLETON_GUARD_ADD_ANNOUNCEMENT)) {
 
       User user = serviceJpa.findUserByEmail(email).orElseThrow(() -> new UsernameNotFoundException("no"));
       return UserDetailsImpl.build(user);

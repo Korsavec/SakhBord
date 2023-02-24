@@ -51,7 +51,7 @@ export class HttpRequestService {
   /*--------------------*/
 
   public getAnnouncement(): Observable<HttpResponse<any> | HttpErrorResponse> {
-    return this.http.get<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/AccountGuard/getAnnouncement`,
+    return this.http.get<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/data/announcement`,
       {observe: 'response'});
   }
 

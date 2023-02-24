@@ -29,8 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     // Для auth-user
     if (request.url.includes(`${this.host}/api/AccountGuard/user`)
-      || request.url.includes(`${this.host}/api/AccountGuard/addAnnouncement`)
-      || request.url.includes(`${this.host}/api/AccountGuard/getAnnouncement`)) {
+      || request.url.includes(`${this.host}/api/AccountGuard/addAnnouncement`)) {
 
       const token = this.localStorageService.getStorageItem('auth-user');
 
@@ -38,6 +37,17 @@ export class AuthInterceptor implements HttpInterceptor {
         const modifiedQuery = request.clone({
           setHeaders: {
             'Authorization': `Bearer ${token}`,
+            'Content-Type': `application/json`,
+            'Accept': `application/json`,
+          }
+        });
+
+        return next.handle(modifiedQuery);
+
+      } else if (request.url.includes(`${this.host}/api/data/announcement`)) {
+
+        const modifiedQuery = request.clone({
+          setHeaders: {
             'Content-Type': `application/json`,
             'Accept': `application/json`,
           }

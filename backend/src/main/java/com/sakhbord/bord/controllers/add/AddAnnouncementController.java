@@ -51,8 +51,6 @@ public class AddAnnouncementController {
         String typeRequest = selectType(addMessageRequest.selectDepartament());
         String noType = selectNoType(addMessageRequest.selectDepartament());
 
-
-
         if (!validationRegExp.patternAnnouncement(addMessageRequest.message())
                 || cityRequest.equals("")
                 || departamentRequest.equals("")
@@ -206,7 +204,7 @@ public class AddAnnouncementController {
         if (Integer.parseInt(count) < 4) {
 
             Announcement announcement = buildAnnouncement(addMessageRequest, request, cityRequest, departamentRequest, typeRequest, noType);
-            announcement.setEmail(addMessageRequest.telegram());
+            announcement.setTelegram(addMessageRequest.telegram());
             serviceJpa.saveAnnouncement(announcement);
 
             serviceJpa.saveAnnouncement(announcement);
@@ -281,7 +279,7 @@ public class AddAnnouncementController {
 
             Announcement announcement = buildAnnouncement(addMessageRequest, request, cityRequest, departamentRequest, typeRequest, noType);
             announcement.setPhone(addMessageRequest.phoneNumber());
-            announcement.setEmail(addMessageRequest.telegram());
+            announcement.setTelegram(addMessageRequest.telegram());
             serviceJpa.saveAnnouncement(announcement);
 
             serviceJpa.saveAnnouncement(announcement);
@@ -348,7 +346,7 @@ public class AddAnnouncementController {
             Announcement announcement = buildAnnouncement(addMessageRequest, request, cityRequest, departamentRequest, typeRequest, noType);
             announcement.setPhone(addMessageRequest.phoneNumber());
             announcement.setEmail(addMessageRequest.emailAddress());
-            announcement.setEmail(addMessageRequest.telegram());
+            announcement.setTelegram(addMessageRequest.telegram());
 
             serviceJpa.saveAnnouncement(announcement);
 
@@ -404,8 +402,7 @@ public class AddAnnouncementController {
 
 
 
-
-    public ResponseEntity<MessageResponse> addError() {
+    private ResponseEntity<MessageResponse> addError() {
         return new ResponseEntity<>(new MessageResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), MESSAGE_ERROR),
                 HttpStatus.OK);
     }
