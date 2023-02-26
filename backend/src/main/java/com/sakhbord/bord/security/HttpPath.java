@@ -15,6 +15,8 @@ public class HttpPath {
 
     public static final String GET_ANNOUNCEMENTS = "/api/data/announcement";
 
+    public static final String GET_RULES = "/api/data/rules";
+
     public static final String RESET_PASS_USER = "/api/resetPasswordUser";
 
 

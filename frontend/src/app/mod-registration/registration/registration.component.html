@@ -74,7 +74,7 @@
                 <label for="email1">Email адрес</label>
                 <br>
                 <input type="text" (ngModelChange)="changeFieldMail()" minlength="8" maxlength="45" formControlName="email1" id="email1" class="text-black text-[28px] p-2 rounded w-full text-sm outline-0" placeholder="Email адрес" required>
-                <div class="w-300my h-25my">
+                <div class="w-[100%] h-25my">
                   <div *ngIf="email1.errors?.['minLength']"> Минимальная длина 8 </div>
                   <div *ngIf="email1.errors?.['maxLength']"> Максимальная длина 58 </div>
                   <div *ngIf="email1.errors?.['pattern']"> Некорректный Email </div>
@@ -85,7 +85,7 @@
                 <label for="email2">Повторить Email адрес</label>
                 <br>
                 <input type="text" (ngModelChange)="changeFieldMail()" minlength="8" maxlength="45" formControlName="email2" id="email2" class="text-black text-[28px] p-2 rounded w-full text-sm outline-0" placeholder="Повторить Email адрес" required>
-                <div class="w-300my h-25my">
+                <div class="w-[100%] h-25my">
                   <div *ngIf="email2.errors?.['minLength']"> Минимальная длина 8 </div>
                   <div *ngIf="email2.errors?.['maxLength']"> Максимальная длина 58 </div>
                   <div *ngIf="email2.errors?.['pattern']"> Некорректный Email </div>
@@ -97,7 +97,7 @@
               <div class="my-5 w-full">
                 <label for="password1">Пароль</label>
                 <input type="password" (ngModelChange)="changeFieldPass()" minlength="6" maxlength="24" formControlName="password1" id="password1" class="text-[28px] p-2 rounded w-full text-sm outline-0" placeholder="Пароль" required>
-                <div class="w-300my h-25my">
+                <div class="w-[100%] h-25my">
                   <div *ngIf="password1.errors?.['minlength']"> Минимальная длина 6 </div>
                   <div *ngIf="password1.errors?.['maxlength']"> Максимальная длина 24 </div>
                   <div *ngIf="password1.errors?.['pattern']"> Некорректный пароль </div>
@@ -107,12 +107,30 @@
               <div class="my-5 w-full">
                 <label for="password2">Повторить пароль</label>
                 <input type="password" (ngModelChange)="changeFieldPass()" minlength="6" maxlength="24" formControlName="password2" id="password2" class="text-[28px] p-2 rounded w-full text-sm outline-0" placeholder="Повторить пароль" required>
-                <div class="w-300my h-25my">
+                <div class="w-[100%] h-25my">
                   <div *ngIf="password2.errors?.['minlength']"> Минимальная длина 6 </div>
                   <div *ngIf="password2.errors?.['maxlength']"> Максимальная длина 24 </div>
                   <div *ngIf="password2.errors?.['pattern']"> Некорректный пароль </div>
                   <div *ngIf="loginForm.hasError('noMatchPass')">Пароли не совпадают</div>
                 </div>
+
+
+
+                <div class="flex justify-between">
+                  <div class="order-last">
+                    <label class="container">
+                      <input type="checkbox" formControlName="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div>
+                    <a routerLink="/rules" target="_blank">Я согласен с правилами -></a>
+                  </div>
+
+                </div>
+
+
+
               </div>
 
               <div class="my-5 w-full">

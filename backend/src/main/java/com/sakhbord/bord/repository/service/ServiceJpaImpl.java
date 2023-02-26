@@ -7,6 +7,7 @@ import com.sakhbord.bord.models.categories.Category;
 import com.sakhbord.bord.models.city.City;
 import com.sakhbord.bord.models.role.RoleAdmin;
 import com.sakhbord.bord.models.role.RoleUser;
+import com.sakhbord.bord.models.rules.Rules;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import com.sakhbord.bord.repository.jpa.*;
@@ -49,7 +50,10 @@ public class ServiceJpaImpl implements ServiceJpa {
 
     private final NotActivatedUserRepository notActivatedUserRepository;
 
-    public ServiceJpaImpl(AdminRepository adminRepository, UserRepository userRepository, AnnouncementRepository announcementRepository, RoleAdminRepository roleAdminRepository, RoleUserRepository roleUserRepository, CityRepository cityRepository, CategoryRepository categoryRepository, TypeCategoryRepository typeCategoryRepository, NotActivatedUserRepository notActivatedUserRepository) {
+    private final
+    RulesRepository rulesRepository;
+
+    public ServiceJpaImpl(AdminRepository adminRepository, UserRepository userRepository, AnnouncementRepository announcementRepository, RoleAdminRepository roleAdminRepository, RoleUserRepository roleUserRepository, CityRepository cityRepository, CategoryRepository categoryRepository, TypeCategoryRepository typeCategoryRepository, NotActivatedUserRepository notActivatedUserRepository, RulesRepository rulesRepository) {
         this.adminRepository = adminRepository;
         this.userRepository = userRepository;
         this.announcementRepository = announcementRepository;
@@ -59,6 +63,7 @@ public class ServiceJpaImpl implements ServiceJpa {
         this.categoryRepository = categoryRepository;
         this.typeCategoryRepository = typeCategoryRepository;
         this.notActivatedUserRepository = notActivatedUserRepository;
+        this.rulesRepository = rulesRepository;
     }
 
 
@@ -101,6 +106,7 @@ public class ServiceJpaImpl implements ServiceJpa {
     public void deleteUserById(Long value) {
         userRepository.deleteById(value);
     }
+
 
     @Override
     public Boolean existsUserByEmail(String email) {
@@ -273,6 +279,16 @@ public class ServiceJpaImpl implements ServiceJpa {
     @Override
     public Optional<TypeCategory> findTypeCategoryByName(String name) {
         return typeCategoryRepository.findTypeCategoryByName(name);
+    }
+
+
+
+    // >>>>>>>>>>>>>>>>>>>> User <<<<<<<<<<<<<<<<<<<<
+
+
+    @Override
+    public List<Rules> findOneRules() {
+        return rulesRepository.findAll();
     }
 
 

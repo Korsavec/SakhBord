@@ -7,6 +7,7 @@ import com.sakhbord.bord.models.categories.Category;
 import com.sakhbord.bord.models.city.City;
 import com.sakhbord.bord.models.role.RoleAdmin;
 import com.sakhbord.bord.models.role.RoleUser;
+import com.sakhbord.bord.models.rules.Rules;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,6 @@ public interface ServiceJpa {
     void deleteAllUser(Iterable<NotActivatedUser> entityList);
 
     Iterable<NotActivatedUser> findAllDateDeletionUser();
-
     // RoleUser >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     RoleUser findRoleUserByName(String value);
@@ -128,5 +128,12 @@ public interface ServiceJpa {
 
 
     Optional<TypeCategory> findTypeCategoryByName(String name);
+
+
+    // >>>>>>>>>>>>>>>>>>>> User <<<<<<<<<<<<<<<<<<<<
+
+
+    List<Rules> findOneRules();
+
 
 }

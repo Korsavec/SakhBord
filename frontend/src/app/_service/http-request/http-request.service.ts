@@ -74,4 +74,10 @@ export class HttpRequestService {
 
   /*--------------------*/
 
+
+  public getRules(): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.get<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/data/rules`,
+      {observe: 'response'});
+  }
+
 }

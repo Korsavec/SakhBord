@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -32,6 +32,8 @@ import static com.sakhbord.bord.config.Constants.customMessageConfirm;
 @RestController
 @RequestMapping("/api")
 public class RegistrationUserController {
+
+    private static final String FORMAT = "yyyy-MM-dd HH:mm:ss.SSSSS";
 
     private final
     SendEmail sendEmail;
@@ -65,7 +67,9 @@ public class RegistrationUserController {
 
         limitLogin.addCache(request.getRemoteAddr());
 
-        if (registrationUserRequest.email().length() < 8
+
+        if (!registrationUserRequest.checkbox()
+                || registrationUserRequest.email().length() < 8
                 || registrationUserRequest.email().length() > 58
                 || registrationUserRequest.password().length() < 6
                 || registrationUserRequest.password().length() > 24
@@ -96,12 +100,12 @@ public class RegistrationUserController {
         user.setToken(UUID.randomUUID().toString());
         user.setEnabled(false);
         user.setAccountNonLocked(true);
-        user.setDateCreatedUser(Instant.now());
+        user.setDateCreatedUser(LocalDateTime.now().format(DateTimeFormatter.ofPattern(FORMAT)));
         user.setIpAddressRegistration(request.getRemoteAddr());
 
         // Добавляем дату удаления аккаунта если не будет подтверждён адрес электронной почты,
         NotActivatedUser notActivatedUser = new NotActivatedUser();
-        notActivatedUser.setDateDeletionUser(Instant.now().plus(1, ChronoUnit.DAYS));
+        notActivatedUser.setDateDeletionUser(LocalDateTime.now().format(DateTimeFormatter.ofPattern(FORMAT)));
         notActivatedUser.setActive(false);
 
         // Синхронизируем между собой user и notActivatedUser или по простому - соединяем между собой

@@ -19,7 +19,9 @@ export class AuthInterceptor implements HttpInterceptor {
       || request.url.includes(`${this.host}/api/checkTokenUserResetPassword`)
       || request.url.includes(`${this.host}/api/newPasswordUser`)
       || request.url.includes(`${this.host}/api/loginUser`)
-      || request.url.includes(`${this.host}/api/loginAdmin`)) {
+      || request.url.includes(`${this.host}/api/loginAdmin`)
+      || request.url.includes(`${this.host}/api/data/announcement`)
+      || request.url.includes(`${this.host}/api/data/rules`)) {
       return next.handle(request);
     }
 
@@ -63,8 +65,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
 
-      } else if (request.url.includes(`${this.host}/api/data/announcement`)
-        || request.url.includes(`${this.host}/api/resetPasswordUser`)) {
+      } else if (request.url.includes(`${this.host}/api/resetPasswordUser`)) {
 
         const modifiedQuery = request.clone({
           setHeaders: {

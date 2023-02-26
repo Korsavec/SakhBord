@@ -9,7 +9,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -51,8 +50,8 @@ public class User implements Serializable {
 
 
     // Это дата создания учётной записи пользователя
-    @Column(name = "date_created_user", nullable = false)
-    private Instant dateCreatedUser;
+    @Column(name = "date_created_user", nullable = false, columnDefinition = "Datetime(6)")
+    private String dateCreatedUser;
 
 
     // Это ip адрес с которого была зарегистрирована учётная запись пользователя
@@ -126,11 +125,11 @@ public class User implements Serializable {
         this.accountNonLocked = accountNonLocked;
     }
 
-    public Instant getDateCreatedUser() {
+    public String getDateCreatedUser() {
         return dateCreatedUser;
     }
 
-    public void setDateCreatedUser(Instant dateCreatedUser) {
+    public void setDateCreatedUser(String dateCreatedUser) {
         this.dateCreatedUser = dateCreatedUser;
     }
 

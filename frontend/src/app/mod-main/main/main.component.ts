@@ -34,8 +34,6 @@ export class MainComponent implements OnInit {
 
         this.announcements = responseData.body;
 
-        console.log(responseData.body)
-
 
       },
       error: err => {

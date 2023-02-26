@@ -80,6 +80,8 @@ public class SecurityConfig {
 
             .requestMatchers(GET_ANNOUNCEMENTS).permitAll()
 
+            .requestMatchers(GET_RULES).permitAll()
+
             .requestMatchers(RESET_PASS_USER).permitAll()
 
 

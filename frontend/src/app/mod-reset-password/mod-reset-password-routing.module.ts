@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ModResetPasswordComponent } from './mod-reset-password.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ModResetPasswordComponent} from './mod-reset-password.component';
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import {NewPasswordComponent} from "./new-password/new-password.component";
 

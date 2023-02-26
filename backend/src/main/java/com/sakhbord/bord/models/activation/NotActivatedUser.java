@@ -2,9 +2,9 @@ package com.sakhbord.bord.models.activation;
 
 import com.sakhbord.bord.models.user.User;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 @Entity
 @Table(name = "model_not_activated_user")
@@ -15,9 +15,11 @@ public class NotActivatedUser implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
     // Это дата удаления аккаунта с неподтверждённым адресом электронной почты
-    @Column(name = "date_deletion_user", nullable = false)
-    private Instant dateDeletionUser;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSSS")
+    @Column(name = "date_deletion_user", nullable = false, columnDefinition = "Datetime(6)")
+    private String dateDeletionUser;
 
     // Активирован аккаунт или нет
     @Column(name = "active", nullable = false, length = 1)
@@ -37,11 +39,11 @@ public class NotActivatedUser implements Serializable {
         this.id = id;
     }
 
-    public Instant getDateDeletionUser() {
+    public String getDateDeletionUser() {
         return dateDeletionUser;
     }
 
-    public void setDateDeletionUser(Instant dateDeletionUser) {
+    public void setDateDeletionUser(String dateDeletionUser) {
         this.dateDeletionUser = dateDeletionUser;
     }
 

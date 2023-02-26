@@ -85,6 +85,15 @@ export class RegistrationComponent implements OnInit {
           /* change
              blur
              submit */
+        }],
+        checkbox: ['', {
+          validators: [
+            Validators.requiredTrue,
+          ],
+          updateOn: 'change'
+          /* change
+             blur
+             submit */
         }]
       }, {validators: this.matchPassword('email1', 'email2', 'password1', 'password2')});
     }
@@ -106,6 +115,10 @@ export class RegistrationComponent implements OnInit {
 
   get password2() {
     return this.loginForm.controls['password2'];
+  }
+
+  get checkbox() {
+    return this.loginForm.controls['checkbox'];
   }
 
   // Сверяем два пароля на одинаковость
@@ -141,11 +154,13 @@ export class RegistrationComponent implements OnInit {
 
     const user: any = {
       email: null,
-      password: null
+      password: null,
+      checkbox: null
     }
 
     user.email = this.email1.value;
     user.password = this.password1.value;
+    user.checkbox = this.checkbox.value;
 
     this.submitForm = false;
 

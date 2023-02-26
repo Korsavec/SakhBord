@@ -25,7 +25,13 @@ const routes: Routes = [
     data: {preload: true}, canMatch: [CanLoadGuard]
   },
 
-  { path: 'resetPassword', loadChildren: () => import('./mod-reset-password/mod-reset-password.module').then(m => m.ModResetPasswordModule) },
+  { path: 'resetPassword', loadChildren: () => import('./mod-reset-password/mod-reset-password.module').then(m => m.ModResetPasswordModule),
+    data: {preload: true}, canMatch: [CanLoadGuard]
+  },
+
+  { path: 'rules', loadChildren: () => import('./mod-rules/mod-rules.module').then(m => m.ModRulesModule),
+    data: {preload: true}, canMatch: [CanLoadGuard]
+  },
 
   { path: '**', loadChildren: () => import('./mod-error/mod-error.module').then(m => m.ModErrorModule),
     data: {preload: true}, canMatch: [CanLoadGuard]
