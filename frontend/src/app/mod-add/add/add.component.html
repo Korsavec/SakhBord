@@ -24,8 +24,17 @@
 
 
         <div class="flex text-20my text-black w-240my h-60my align-middle justify-end items-end">
-          <div class="relative inset-0 w-102my h-60my m-auto pl-20my hover:bg-hoverButtonMy cursor-pointer">
-            <div class="absolute bg-rose-600 w-45my h-45my rounded-full mt-2 ml-2"></div>
+          <div class="hover-user-logo relative inset-0 w-102my h-60my m-auto hover:bg-hoverButtonMy cursor-pointer">
+
+            <ul>
+              <li>
+                <div class="absolute bg-rose-600 w-45my h-45my rounded-full mt-2 ml-2 top-0 ml-30my"></div>
+                <ul class="dropdown">
+                  <li><a routerLink="/" (click)="logOut()">Выход</a></li>
+                </ul>
+              </li>
+            </ul>
+
           </div>
         </div>
 

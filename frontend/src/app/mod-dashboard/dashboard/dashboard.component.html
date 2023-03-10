@@ -1,0 +1,76 @@
+<div class="flex flex-col min-h-screen">
+  <header>
+    <div class="flex flex-row bg-white">
+      <div class="flex justify-center basis-1/4 text-center">
+        <div class="flex justify-center min-w-185my max-w-200my">
+          <a class="text-logo text-green-dark-sea-wave-my font-bold" routerLink="/">SakhBord</a>
+        </div>
+      </div>
+
+
+      <div class="flex basis-1/2 justify-center items-center">
+
+        <input type="text" class="px-3 flex-auto h-30my max-w-430my" placeholder="Введите запрос">
+
+        <div class="cursor-pointer shadow bg-dark-white-my w-60my h-30my text-center hover:bg-dark-white-my-hover">
+          <span class="font-bold align-middle text-buttonIconSearch30 icon-search"></span>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="flex basis-1/4 justify-end items-center" *ngIf="closeLogin">
+        <div (click)="goToPageLogin()" class="flex hover:bg-hoverButtonMy cursor-pointer text-20my text-black w-100my h-60my align-middle justify-center items-center">
+          Войти
+        </div>
+        <div (click)="goToPageRegistration()" class="flex hover:bg-hoverButtonMy cursor-pointer text-20my text-black w-240my h-60my align-middle justify-center items-center">
+          Зарегистрироваться
+        </div>
+      </div>
+
+      <div class="flex basis-1/4 justify-end items-center" *ngIf="isShowUserAccount">
+        <div (click)="goToPageAdd()" class="flex hover:bg-hoverButtonMy cursor-pointer text-20my text-black w-140my h-60my align-middle justify-center items-center">
+          Добавить
+        </div>
+
+
+
+        <div (click)="goToPageRegistration()" class="flex text-20my text-black w-200my h-60my align-middle justify-end items-end">
+          <div class="hover-user-logo relative inset-0 w-102my h-60my m-auto hover:bg-hoverButtonMy cursor-pointer">
+
+            <ul>
+              <li>
+                <div class="absolute bg-rose-600 w-45my h-45my rounded-full mt-2 ml-2 top-0 ml-30my"></div>
+                <ul class="dropdown">
+                  <li><a routerLink="/" (click)="logOut()">Выход</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </header>
+
+
+
+  <main class="flex-1">
+
+
+  </main>
+
+</div>

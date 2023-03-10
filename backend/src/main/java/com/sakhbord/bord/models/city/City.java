@@ -9,6 +9,12 @@ import java.io.Serializable;
 @Table(name = "model_city")
 public class City implements Serializable {
 
+    public City(Long id) {
+        this.id = id;
+    }
+
+    public City() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

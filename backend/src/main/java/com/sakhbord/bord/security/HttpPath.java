@@ -8,16 +8,24 @@ public class HttpPath {
 
 
     public static final String LOGIN_ADMIN = "/api/loginAdmin";
-    public static final String GUARD_ADMIN = "/api/auth/admin";
+    public static final String AUTH_ADMIN = "/api/auth/admin";
 
 
-    public static final String GUARD_ADD_ANNOUNCEMENT = "/api/auth/addAnnouncement";
+    public static final String AUTH_ADD_ANNOUNCEMENT = "/api/auth/addAnnouncement";
+
+
 
     public static final String GET_ANNOUNCEMENTS = "/api/data/announcement";
+    public static final String GET_ANNOUNCEMENT_FILTER = "/api/data/filter/announcement/{category}/{city}";
+    public static final String GET_ANNOUNCEMENT_FILTER_FULL = "/api/data/filterType/announcement/{category}/{city}";
+
+
 
     public static final String GET_RULES = "/api/data/rules";
 
+
     public static final String RESET_PASS_USER = "/api/resetPasswordUser";
+
 
 
 

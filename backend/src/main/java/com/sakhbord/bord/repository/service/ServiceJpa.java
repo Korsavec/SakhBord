@@ -10,6 +10,8 @@ import com.sakhbord.bord.models.role.RoleUser;
 import com.sakhbord.bord.models.rules.Rules;
 import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -108,6 +110,10 @@ public interface ServiceJpa {
 
     Optional<Announcement> announcementFindList(Long value);
     List<Announcement> announcementFindAll();
+
+    Page<Announcement> findAllByCategoryAndCity(Category category, City city, Pageable pageable);
+
+    Page<Announcement> findAllByCategoryAndTypeCategoryAndCity(Category category, TypeCategory typeCategory, City city, Pageable pageable);
 
 
 

@@ -1,4 +1,4 @@
-package com.sakhbord.bord.repository.jpa;
+package com.sakhbord.bord.repository.jpa.announcement;
 
 import com.sakhbord.bord.models.announcement.Announcement;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Transactional(readOnly = true)
 @Repository
@@ -74,6 +76,12 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
                                          @Param("endDate") String endTime,
                                          @Param("telegram") String telegram,
                                          @Param("ip") String ip);
+
+
+
+    @Query(value = "SELECT * FROM model_announcement WHERE MATCH (message) AGAINST (:message IN NATURAL LANGUAGE MODE)",
+            nativeQuery = true)
+    List<Announcement> searchAnnouncements(String message);
 
 
 }

@@ -28,7 +28,7 @@ public class SchedulerNotActivatedUser {
 
     //        @Scheduled(fixedDelay = 86_400_000) // 1 день 86_400_000
     @Scheduled(cron = "0 0 0/23 * * *") // Каждый день в 23 часа "0 0 0/23 * * *"
-//    @Scheduled(fixedRate = 100000000 ) // Каждый день в 23 часа "0 0 0/23 * * *"
+//    @Scheduled(fixedRate = 10000 ) // микросекунды 1000 = 1 секунда
     public void deleteNotActivatedUser() {
 
 

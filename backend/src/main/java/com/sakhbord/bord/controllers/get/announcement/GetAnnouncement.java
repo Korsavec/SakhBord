@@ -12,7 +12,6 @@ import java.util.List;
 @RequestMapping("/api/data")
 public class GetAnnouncement {
 
-
     private final
     ServiceJpa serviceJpa;
 

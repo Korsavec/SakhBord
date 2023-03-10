@@ -60,6 +60,16 @@ export class HttpRequestService {
       {observe: 'response'});
   }
 
+  public getAdOfType(category:string, city: string): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.get<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/data/filter/announcement/${category}/${city}`,
+      {observe: 'response'});
+  }
+
+  public getAdWithType(category:string, city: string): Observable<HttpResponse<any> | HttpErrorResponse> {
+    return this.http.get<HttpResponse<any> | HttpErrorResponse>(`${this.host}/api/data/filterType/announcement/${category}/${city}`,
+      {observe: 'response'});
+  }
+
   /*--------------------*/
 
   public loginAdmin(user: string): Observable<HttpResponse<any> | HttpErrorResponse> {

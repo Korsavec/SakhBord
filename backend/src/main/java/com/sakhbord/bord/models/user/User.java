@@ -187,8 +187,7 @@ public class User implements Serializable {
         if (!getDateCreatedUser().equals(user.getDateCreatedUser())) return false;
         if (!getIpAddressRegistration().equals(user.getIpAddressRegistration())) return false;
         if (!getAnnouncements().equals(user.getAnnouncements())) return false;
-        if (!getRoleUsers().equals(user.getRoleUsers())) return false;
-        return getNotActivatedUser().equals(user.getNotActivatedUser());
+        return getRoleUsers().equals(user.getRoleUsers());
     }
 
     @Override
@@ -203,7 +202,7 @@ public class User implements Serializable {
         result = 31 * result + (isConfirmationEmail() ? 1 : 0);
         result = 31 * result + getAnnouncements().hashCode();
         result = 31 * result + getRoleUsers().hashCode();
-        result = 31 * result + getNotActivatedUser().hashCode();
         return result;
     }
+
 }

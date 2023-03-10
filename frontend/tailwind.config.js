@@ -31,6 +31,9 @@ module.exports = {
         '25my': '1.563rem',
         '530my': '33.125rem',
       },
+      margin: {
+        '30my': '1.875rem'
+      },
       colors: {
         'green-dark-sea-wave-my': '#00A591',
         'dark-white-my': '#F5F5F5',

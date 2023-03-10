@@ -8,6 +8,30 @@
 2. Установить если их нет **роли**:
 
 
+
+
+
+
+
+Чтобы корректно заработали стоп слова, необходимо сначала создать таблицу и поместить туда хотя-бы одно стоп слово
+и уже потом настраивать индексы. В данном случаи, именно это мы и делаем.
+
+
+CREATE TABLE my_stopwords(value VARCHAR(35));
+
+
+INSERT INTO my_stopwords(value) VALUES ('объявление');
+
+
+SET GLOBAL innodb_ft_server_stopword_table = 'sakhbord/my_stopwords';
+
+
+CREATE FULLTEXT INDEX message ON model_announcement(message);
+
+
+
+
+
 INSERT INTO `model_role_user` (`id`, `name`) VALUES ('1', 'ROLE_USER'), ('2', 'ROLE_ADMIN');
 
 
@@ -31,8 +55,6 @@ INSERT INTO `model_announcement` (`id`, `date_created_announcement`, `email`, `e
 
 INSERT INTO `model_announcement` (`id`, `date_created_announcement`, `email`, `enabled`, `ip_address_registration`, `message`, `phone`, `telegram`, `category_id`, `city_id`, `type_category_id`, `user_id`) VALUES ('2', '2023-02-23 17:51:22.000000', 'www@www.www', b'1', '127.0.0.1', '2 - моё объявление - 2', '9242852535', 'telega', '6', '12', NULL, '1');
 
+
 INSERT INTO `model_rules` (`id`, `header`, `regulations`) VALUES (NULL, 'Правила пользования Интернет ресурсом', 'Вы можете быть заблокированы просто так');
-
-ALTER TABLE `join_user_and_role_users` DROP FOREIGN KEY `FKbg6rcfxrq4r6teiht0kalpgi7`; ALTER TABLE `join_user_and_role_users` ADD CONSTRAINT `FKbg6rcfxrq4r6teiht0kalpgi7` FOREIGN KEY (`user_id`) REFERENCES `model_user`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
-
 

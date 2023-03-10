@@ -33,12 +33,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
     if (request.getRequestURI().equals(LOGIN_USER)
-            || request.getRequestURI().equals(GUARD_ADD_ANNOUNCEMENT)) {
+            || request.getRequestURI().equals(AUTH_ADD_ANNOUNCEMENT)) {
 
       User user = serviceJpa.findUserByEmail(email).orElseThrow(() -> new UsernameNotFoundException("no"));
       return UserDetailsImpl.build(user);
 
-    } else if (request.getRequestURI().equals(LOGIN_ADMIN) || request.getRequestURI().equals(GUARD_ADMIN)) {
+    } else if (request.getRequestURI().equals(LOGIN_ADMIN) || request.getRequestURI().equals(AUTH_ADMIN)) {
       Admin admin = serviceJpa.findAdminByEmail(email).orElseThrow(() -> new UsernameNotFoundException("no"));
       return UserDetailsImpl.build(admin);
 

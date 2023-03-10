@@ -33,6 +33,10 @@ const routes: Routes = [
     data: {preload: true}, canMatch: [CanLoadGuard]
   },
 
+  { path: 'dashboard', loadChildren: () => import('./mod-dashboard/mod-dashboard.module').then(m => m.ModDashboardModule),
+    data: {preload: true}, canMatch: [CanLoadGuard]
+  },
+
   { path: '**', loadChildren: () => import('./mod-error/mod-error.module').then(m => m.ModErrorModule),
     data: {preload: true}, canMatch: [CanLoadGuard]
   },

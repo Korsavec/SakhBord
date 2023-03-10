@@ -70,7 +70,7 @@
 
 
   <main class="flex-1">
-    <form [formGroup]="formFilter" (submit)="submitFilter()">
+    <form [formGroup]="formFilter" (submit)="submit()">
       <div class="flex align-middle justify-center h-45my">
         <div class="flex mr-15my items-center">
 
@@ -168,35 +168,35 @@
 
     </form>
 
-      <ul class="flex grid grid-rows-1 align-middle justify-center pt-5">
+    <ul class="flex grid grid-rows-1 align-middle justify-center pt-5">
 
-        <li class="flex max-w-1010my mb-[0.625rem] shadow-md rounded-lg bg-white pl-3 pr-3 pt-3 pb-3 grid grid-rows-1" *ngFor="let announcement of announcements">
+      <li class="flex max-w-1010my mb-[0.625rem] shadow-md rounded-lg bg-white pl-3 pr-3 pt-3 pb-3 grid grid-rows-1" *ngFor="let announcement of announcements">
 
 
-            <p class="break-all"> {{ announcement.message }} </p>
-            <div class="flex h-auto">
-              <div class="flex grid-rows-2 flex-auto">
-                <div class="flex-none">
-                  <img src="./assets/img/phone.png" alt="phone" class="pt-[0.188rem]">
-                </div>
-                <a href="tel:+79242852535" class="ml-2my">+7{{ announcement.phone }} </a>
-                <div class="flex-none ml-25my">
-                  <img src="./assets/img/email.png" alt="phone" class="pt-[0.188rem]">
-                </div>
-                <a href="mailto:ivan.matreshkin@gmail.com" class="ml-2my"> {{ announcement.email }} </a>
-                <div class="flex-none ml-25my">
-                  <img src="./assets/img/telegram.png" alt="phone" class="pt-[0.188rem]">
-                </div>
-                <a href="tg://resolve?domain=SakgalinGirl" class="ml-2my"> {{ announcement.telegram }} </a>
-                <p class="ml-25my text-dayColor">Сегодня</p>
-              </div>
-              <a href="/up" class="text-blue-700">выделить 000000000025</a>
+        <p class="break-all"> {{ announcement.message }} </p>
+        <div class="flex h-auto">
+          <div class="flex grid-rows-2 flex-auto">
+            <div class="flex-none">
+              <img src="./assets/img/phone.png" alt="phone" class="pt-[0.188rem]">
             </div>
+            <a href="tel:+79242852535" class="ml-2my">+7{{ announcement.phone }} </a>
+            <div class="flex-none ml-25my">
+              <img src="./assets/img/email.png" alt="phone" class="pt-[0.188rem]">
+            </div>
+            <a href="mailto:ivan.matreshkin@gmail.com" class="ml-2my"> {{ announcement.email }} </a>
+            <div class="flex-none ml-25my">
+              <img src="./assets/img/telegram.png" alt="phone" class="pt-[0.188rem]">
+            </div>
+            <a href="tg://resolve?domain=SakgalinGirl" class="ml-2my"> {{ announcement.telegram }} </a>
+            <p class="ml-25my text-dayColor">Сегодня</p>
+          </div>
+          <a href="/up" class="text-blue-700">выделить 000000000025</a>
+        </div>
 
 
 
-        </li>
-      </ul>
+      </li>
+    </ul>
 
 
 

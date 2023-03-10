@@ -72,17 +72,24 @@ public class SecurityConfig {
 
 
             .requestMatchers(API_ADMIN).permitAll()
-            .requestMatchers(GUARD_ADMIN).permitAll()
+            .requestMatchers(AUTH_ADMIN).permitAll()
 
 
 
-            .requestMatchers(GUARD_ADD_ANNOUNCEMENT).permitAll()
+            .requestMatchers(AUTH_ADD_ANNOUNCEMENT).permitAll()
+
+
 
             .requestMatchers(GET_ANNOUNCEMENTS).permitAll()
+            .requestMatchers(GET_ANNOUNCEMENT_FILTER).permitAll()
+            .requestMatchers(GET_ANNOUNCEMENT_FILTER_FULL).permitAll()
+
+
 
             .requestMatchers(GET_RULES).permitAll()
 
             .requestMatchers(RESET_PASS_USER).permitAll()
+
 
 
 

@@ -3,15 +3,17 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {Observable} from 'rxjs';
 import {properties} from "../../../resources/application.properties";
 import {LocalStorageService} from "../../_service/local-storage/local-storage.service";
+import {GeneralService} from "../../_service/general/general.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   private host: string = properties.apiUrl;
 
-  constructor(private localStorageService: LocalStorageService) {}
+  constructor(private localStorageService: LocalStorageService, private gS: GeneralService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
 
     if (request.url.includes(`${this.host}/api/registrationUser`)
       || request.url.includes(`${this.host}/api/confirmEmailUser`)
@@ -21,7 +23,11 @@ export class AuthInterceptor implements HttpInterceptor {
       || request.url.includes(`${this.host}/api/loginUser`)
       || request.url.includes(`${this.host}/api/loginAdmin`)
       || request.url.includes(`${this.host}/api/data/announcement`)
-      || request.url.includes(`${this.host}/api/data/rules`)) {
+      || request.url.includes(`${this.host}/api/data/rules`)
+      || request.url.includes(`${this.host}/api/data/filter/announcement/${this.gS.filterCategory}/${this.gS.filterCity}`)
+      || request.url.includes(`${this.host}/api/data/filterFull/announcement/${this.gS.filterCategory}/${this.gS.filterCity}`)
+
+    ) {
       return next.handle(request);
     }
 

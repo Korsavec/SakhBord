@@ -110,4 +110,130 @@ public class CategoryTypeFilter {
     }
 
 
+
+    public static long getNumberCategory(int category) {
+
+        long cat;
+
+        // В html и в базе данных, коды категорий разные
+
+        switch (category) {
+            case 110 -> cat = 11L;
+            case 121 -> cat = 3L;
+            case 132 -> cat = 4L;
+            case 190 -> cat = 10L;
+            default -> cat = 0L;
+        }
+
+        return cat;
+
+    }
+
+
+    public static boolean isCityNumber(int city) {
+
+        boolean isCityNumber;
+
+        // В html и в базе данных, коды категорий разные
+
+        isCityNumber =
+                   city == 1
+                || city == 2
+                || city == 3
+                || city == 4
+                || city == 5
+                || city == 6
+                || city == 7
+                || city == 8
+                || city == 9
+                || city == 10
+                || city == 11
+                || city == 12
+                || city == 13
+                || city == 14
+                || city == 15
+                || city == 16
+                || city == 17
+                || city == 18
+                || city == 19
+                || city == 20
+                || city == 21
+                || city == 22
+                || city == 23
+                || city == 24
+                || city == 25
+                || city == 26;
+
+        return isCityNumber;
+
+    }
+
+
+
+    public static boolean selectDepartamentCode(int value) {
+
+        boolean selectDepartamentCode;
+
+        selectDepartamentCode = switch (value) {
+            case 101, 102, 103, 104, 105, 106, 111, 112, 141, 142, 151, 152, 161, 162, 171, 172, 181, 182 -> true;
+            default -> false;
+        };
+
+
+        return selectDepartamentCode;
+
+    }
+
+
+
+    public static long selectCategoryCode(int value) {
+
+
+        // Это мы получаем категорию
+        // В html и в базе данных, коды(id) категорий разные
+
+        long cat;
+
+        switch (value) {
+            case 101, 102, 103, 104, 105, 106 -> cat = 1L; // +
+            case 111, 112 -> cat = 2L; // +
+            case 141, 142 -> cat = 5L; // +
+            case 151, 152 -> cat = 6L; // +
+            case 161, 162 -> cat = 7L; // +
+            case 171, 172 -> cat = 8L; // +
+            case 181, 182 -> cat = 9L; // +
+            default -> cat = 0;
+        }
+        return cat;
+
+    }
+
+
+    public static long selectTypeCategoryCode(int value) {
+
+
+        // Это мы получаем тип категории
+        // В html и в базе данных, коды(id) типы категорий разные
+
+        long cat;
+
+        switch (value) {
+            case 101, 111, 141 -> cat = 1L; // +
+            case 102, 112, 142 -> cat = 2L; // +
+            case 103 -> cat = 5L; // +
+            case 104 -> cat = 6L; // +
+            case 105 -> cat = 3L; // +
+            case 106 -> cat = 4L; // +
+            case 151, 161 -> cat = 7L; // +
+            case 152, 162 -> cat = 8L; // +
+            case 171 -> cat = 9L; // +
+            case 172 -> cat = 10L; // +
+            case 181 -> cat = 11L; // +
+            case 182 -> cat = 12L; // +
+            default -> cat = 0;
+        }
+        return cat;
+
+    }
+
 }

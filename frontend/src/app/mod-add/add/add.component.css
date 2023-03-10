@@ -109,3 +109,36 @@ input[type=text]:focus {
   }
 }
 
+
+
+
+
+
+
+
+
+/*dropdown*/
+
+.dropdown {
+  margin-top: 60px
+}
+
+
+ul li ul.dropdown li {
+  /*display: block;*/
+  width: 102px;
+  height: 60px;
+  padding-top: 15px;
+  text-align: center;
+  background-color: white;
+  display: none;
+}
+
+.hover-user-logo:hover ul li ul li {
+  display: block;
+}
+
+ul li ul.dropdown li:hover {
+  background-color: #F1FFFD;
+}
+

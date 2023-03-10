@@ -8,6 +8,12 @@ import java.io.Serializable;
 @Table(name = "model_type_category")
 public class TypeCategory implements Serializable {
 
+    public TypeCategory(Long id) {
+        this.id = id;
+    }
+
+    public TypeCategory() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +41,7 @@ public class TypeCategory implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
 
     @Override
     public boolean equals(Object o) {

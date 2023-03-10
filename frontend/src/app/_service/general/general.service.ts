@@ -6,6 +6,10 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 })
 export class GeneralService {
 
+
+  private _filterCategory!: string;
+  private _filterCity!: string;
+
   blocked: boolean = false;
 
   jwtHelper = new JwtHelperService();
@@ -143,5 +147,140 @@ export class GeneralService {
 
 
   }
+
+
+  get filterCategory(): string {
+    return this._filterCategory;
+  }
+
+  set filterCategory(value: string) {
+    this._filterCategory = value;
+  }
+
+
+  get filterCity(): string {
+    return this._filterCity;
+  }
+
+  set filterCity(value: string) {
+    this._filterCity = value;
+  }
+
+
+
+
+  isCategoryOfType(value:string): boolean {
+
+    let cat: boolean = false;
+
+    if (value === '110'
+      || value === '121'
+      || value === '132'
+      || value === '190') {
+      cat = true;
+    }
+
+    return cat;
+  }
+
+
+
+  isCategoryFull(value:string): boolean {
+
+    let cat: boolean = false;
+
+    if (value === '101'
+      || value === '102'
+      || value === '103'
+      || value === '104'
+      || value === '105'
+      || value === '106'
+      || value === '110'
+      || value === '111'
+      || value === '112'
+      || value === '121'
+      || value === '132'
+      || value === '141'
+      || value === '142'
+      || value === '151'
+      || value === '152'
+      || value === '161'
+      || value === '162'
+      || value === '171'
+      || value === '172'
+      || value === '181'
+      || value === '182'
+      || value === '190') {
+      cat = true;
+    }
+
+    return cat;
+  }
+
+  isCity(value:string) {
+
+    let city: boolean = false;
+
+    if (value === '1'
+      || value === '2'
+      || value === '3'
+      || value === '4'
+      || value === '5'
+      || value === '6'
+      || value === '7'
+      || value === '8'
+      || value === '9'
+      || value === '10'
+      || value === '11'
+      || value === '12'
+      || value === '13'
+      || value === '14'
+      || value === '15'
+      || value === '16'
+      || value === '17'
+      || value === '18'
+      || value === '19'
+      || value === '20'
+      || value === '21'
+      || value === '22'
+      || value === '23'
+      || value === '24'
+      || value === '25'
+      || value === '26') {
+      city = true;
+    }
+
+    return city;
+
+  }
+
+  isCategoryWithType(value:string) {
+
+    let cat: boolean = false;
+
+    if (value === '101'
+      || value === '102'
+      || value === '103'
+      || value === '104'
+      || value === '105'
+      || value === '106'
+      || value === '111'
+      || value === '112'
+      || value === '141'
+      || value === '142'
+      || value === '151'
+      || value === '152'
+      || value === '161'
+      || value === '162'
+      || value === '171'
+      || value === '172'
+      || value === '181'
+      || value === '182') {
+      cat = true;
+    }
+
+    return cat;
+  }
+
 
 }

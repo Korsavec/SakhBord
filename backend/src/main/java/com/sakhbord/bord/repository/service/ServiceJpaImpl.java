@@ -12,8 +12,12 @@ import com.sakhbord.bord.models.type.category.TypeCategory;
 import com.sakhbord.bord.models.user.User;
 import com.sakhbord.bord.repository.jpa.*;
 import com.sakhbord.bord.repository.jpa.activated.NotActivatedUserRepository;
+import com.sakhbord.bord.repository.jpa.announcement.AnnouncementPagingRepository;
+import com.sakhbord.bord.repository.jpa.announcement.AnnouncementRepository;
 import com.sakhbord.bord.repository.jpa.role.RoleAdminRepository;
 import com.sakhbord.bord.repository.jpa.role.RoleUserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +35,7 @@ public class ServiceJpaImpl implements ServiceJpa {
 
 
     private final AnnouncementRepository announcementRepository;
+    private final AnnouncementPagingRepository announcementPagingRepository;
 
 
 
@@ -53,7 +58,7 @@ public class ServiceJpaImpl implements ServiceJpa {
     private final
     RulesRepository rulesRepository;
 
-    public ServiceJpaImpl(AdminRepository adminRepository, UserRepository userRepository, AnnouncementRepository announcementRepository, RoleAdminRepository roleAdminRepository, RoleUserRepository roleUserRepository, CityRepository cityRepository, CategoryRepository categoryRepository, TypeCategoryRepository typeCategoryRepository, NotActivatedUserRepository notActivatedUserRepository, RulesRepository rulesRepository) {
+    public ServiceJpaImpl(AdminRepository adminRepository, UserRepository userRepository, AnnouncementRepository announcementRepository, RoleAdminRepository roleAdminRepository, RoleUserRepository roleUserRepository, CityRepository cityRepository, CategoryRepository categoryRepository, TypeCategoryRepository typeCategoryRepository, NotActivatedUserRepository notActivatedUserRepository, RulesRepository rulesRepository, AnnouncementPagingRepository announcementPagingRepository) {
         this.adminRepository = adminRepository;
         this.userRepository = userRepository;
         this.announcementRepository = announcementRepository;
@@ -64,6 +69,7 @@ public class ServiceJpaImpl implements ServiceJpa {
         this.typeCategoryRepository = typeCategoryRepository;
         this.notActivatedUserRepository = notActivatedUserRepository;
         this.rulesRepository = rulesRepository;
+        this.announcementPagingRepository = announcementPagingRepository;
     }
 
 
@@ -251,6 +257,16 @@ public class ServiceJpaImpl implements ServiceJpa {
     public List<Announcement> announcementFindAll() {
         return announcementRepository.findAll();
     }
+
+
+    public Page<Announcement> findAllByCategoryAndCity(Category category, City city, Pageable pageable) {
+        return announcementPagingRepository.findAllByCategoryAndCity(category, city, pageable);
+    }
+
+    public Page<Announcement> findAllByCategoryAndTypeCategoryAndCity(Category category, TypeCategory typeCategory, City city, Pageable pageable) {
+        return announcementPagingRepository.findAllByCategoryAndTypeCategoryAndCity(category, typeCategory, city, pageable);
+    }
+
 
 
 

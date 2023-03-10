@@ -4,16 +4,20 @@ import {CommonModule} from '@angular/common';
 import {ModMainRoutingModule} from './mod-main-routing.module';
 import {ModMainComponent} from './mod-main.component';
 import {MainComponent} from './main/main.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {FilterAdComponent} from './filter-ad/filter-ad.component';
 
 
 @NgModule({
   declarations: [
     ModMainComponent,
-    MainComponent
+    MainComponent,
+    FilterAdComponent
   ],
-  imports: [
-    CommonModule,
-    ModMainRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        ModMainRoutingModule,
+        ReactiveFormsModule
+    ]
 })
 export class ModMainModule { }

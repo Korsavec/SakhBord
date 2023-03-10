@@ -235,7 +235,7 @@ export class AddComponent implements OnInit {
           this.router.navigate(['/']).then(() => {});
 
         },
-        error:(err) => {
+        error:() => {
 
           this.router.navigate(['/']).then(() => {});
 
@@ -247,6 +247,13 @@ export class AddComponent implements OnInit {
       this.router.navigate(['/']).then(() => {});
     }
 
+
+  }
+
+
+  logOut() {
+
+    this.generalService.removeStorageItem('auth-user');
 
   }
 

@@ -12,6 +12,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+//@Table(name = "model_announcement", indexes = @Index(columnList = "message"))
 @Table(name = "model_announcement")
 @JsonPropertyOrder({ "id", "message", "phone", "email", "telegram", "date"})
 public class Announcement implements Serializable {
@@ -25,7 +26,8 @@ public class Announcement implements Serializable {
 
 
     // Это текст объявление
-    @Column(name = "message", nullable = false, length = 335)
+     @Column(name = "message", nullable = false, length = 335)
+//    @Column(name = "message", columnDefinition = "VARCHAR(335) NOT NULL, FULLTEXT KEY message (message)")
     private String message;
 
 
@@ -81,6 +83,7 @@ public class Announcement implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_category_id")
     private TypeCategory typeCategory;
+
 
     public Long getId() {
         return id;
@@ -176,36 +179,5 @@ public class Announcement implements Serializable {
 
     public void setTypeCategory(TypeCategory typeCategory) {
         this.typeCategory = typeCategory;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Announcement that)) return false;
-
-        if (isEnabled() != that.isEnabled()) return false;
-        if (!getId().equals(that.getId())) return false;
-        if (!getMessage().equals(that.getMessage())) return false;
-        if (!getDateCreatedAnnouncement().equals(that.getDateCreatedAnnouncement())) return false;
-        if (!getIpAddressRegistration().equals(that.getIpAddressRegistration())) return false;
-        if (!getUser().equals(that.getUser())) return false;
-        if (!getCity().equals(that.getCity())) return false;
-        if (!getCategory().equals(that.getCategory())) return false;
-        return getTypeCategory().equals(that.getTypeCategory());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getId().hashCode();
-        result = 31 * result + getMessage().hashCode();
-        result = 31 * result + getDateCreatedAnnouncement().hashCode();
-        result = 31 * result + (isEnabled() ? 1 : 0);
-        result = 31 * result + getIpAddressRegistration().hashCode();
-        result = 31 * result + getUser().hashCode();
-        result = 31 * result + getCity().hashCode();
-        result = 31 * result + getCategory().hashCode();
-        result = 31 * result + getTypeCategory().hashCode();
-        return result;
     }
 }
